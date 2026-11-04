@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "dayana", "runtimeExecutable": "C:/Program Files/nodejs/node.exe", "runtimeArgs": ["C:/Users/xrand/AppData/Local/Temp/claude/1421263b12eeca00/2e278101-eca5-46ef-9831-20258eaea63e/scratchpad/serve.js", "D:/wenDayana", "5173"], "port": 5173 }
+  ]
+}

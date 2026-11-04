@@ -1,0 +1,903 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T16:34:57.989Z",
+  "title": "Design System: Para Dayana",
+  "extensions": {
+    "colorMeta": {
+      "night-0": {
+        "role": "neutral",
+        "displayName": "Night Zenith",
+        "canonical": "#0A0726",
+        "tonalRamp": [
+          "#090524",
+          "#1F1F41",
+          "#3A3B60",
+          "#575980",
+          "#7779A2",
+          "#979AC5",
+          "#BDC0EC",
+          "#EBEDFF"
+        ]
+      },
+      "night-1": {
+        "role": "neutral",
+        "displayName": "Night Indigo",
+        "canonical": "#170F4A",
+        "tonalRamp": [
+          "#09022C",
+          "#1E1854",
+          "#373774",
+          "#535596",
+          "#7275B9",
+          "#9297DD",
+          "#B9BFFA",
+          "#EBEDFF"
+        ]
+      },
+      "night-2": {
+        "role": "neutral",
+        "displayName": "Night Violet",
+        "canonical": "#2D1666",
+        "tonalRamp": [
+          "#0D002C",
+          "#260B5D",
+          "#402E7F",
+          "#5D4EA1",
+          "#7B6EC5",
+          "#9C90EA",
+          "#C1BBFE",
+          "#EDECFE"
+        ]
+      },
+      "night-3": {
+        "role": "neutral",
+        "displayName": "Stadium Horizon Plum",
+        "canonical": "#5A2380",
+        "tonalRamp": [
+          "#140122",
+          "#340650",
+          "#561E7B",
+          "#75409E",
+          "#9661C1",
+          "#B882E6",
+          "#D8B1FB",
+          "#F4EAFD"
+        ]
+      },
+      "well": {
+        "role": "neutral",
+        "displayName": "Machine Well",
+        "canonical": "#0B0726",
+        "tonalRamp": [
+          "#090524",
+          "#201F41",
+          "#3B3B5F",
+          "#595980",
+          "#7879A1",
+          "#999AC4",
+          "#BEC0EC",
+          "#ECEDFF"
+        ]
+      },
+      "cabinet-top": {
+        "role": "neutral",
+        "displayName": "Cabinet Indigo Light",
+        "canonical": "#4636BE",
+        "tonalRamp": [
+          "#08012E",
+          "#1E0767",
+          "#3618A5",
+          "#4E42CA",
+          "#6A66F0",
+          "#8D92F7",
+          "#B8BFFC",
+          "#EBEDFE"
+        ]
+      },
+      "cabinet-mid": {
+        "role": "neutral",
+        "displayName": "Cabinet Indigo",
+        "canonical": "#2C2196",
+        "tonalRamp": [
+          "#06022E",
+          "#1A006F",
+          "#2F269B",
+          "#484ABF",
+          "#646DE5",
+          "#8794F7",
+          "#B5C0FC",
+          "#EAEEFE"
+        ]
+      },
+      "cabinet-deep": {
+        "role": "neutral",
+        "displayName": "Cabinet Indigo Deep",
+        "canonical": "#1D1572",
+        "tonalRamp": [
+          "#06012F",
+          "#180A69",
+          "#2E308C",
+          "#4851B0",
+          "#6672D4",
+          "#8594FA",
+          "#B3C0FE",
+          "#EAEEFE"
+        ]
+      },
+      "drawer-top": {
+        "role": "neutral",
+        "displayName": "Drawer Indigo",
+        "canonical": "#20166A",
+        "tonalRamp": [
+          "#08002F",
+          "#1C0E63",
+          "#333185",
+          "#4E51A9",
+          "#6C72CD",
+          "#8C94F2",
+          "#B6BFFE",
+          "#EBEDFE"
+        ]
+      },
+      "drawer-deep": {
+        "role": "neutral",
+        "displayName": "Drawer Indigo Deep",
+        "canonical": "#140D4A",
+        "tonalRamp": [
+          "#08012E",
+          "#1C1855",
+          "#353776",
+          "#515698",
+          "#6F76BB",
+          "#8F97E0",
+          "#B7BFFC",
+          "#EBEDFE"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Starlight Ink",
+        "canonical": "#F5F2FF",
+        "tonalRamp": [
+          "#0C0A12",
+          "#25222C",
+          "#403E48",
+          "#5E5C67",
+          "#7E7B87",
+          "#9F9CA8",
+          "#C5C2CE",
+          "#EFECF9"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Lilac Ink",
+        "canonical": "#CFC6F5",
+        "tonalRamp": [
+          "#0E0323",
+          "#261C40",
+          "#42395F",
+          "#5F567F",
+          "#7F76A1",
+          "#A097C4",
+          "#C6BDEB",
+          "#EFECFE"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "canonical": "#1C1245",
+        "tonalRamp": [
+          "#0B012B",
+          "#22194D",
+          "#3C376D",
+          "#59558E",
+          "#7875B1",
+          "#9996D5",
+          "#BEBCFD",
+          "#EDEDFE"
+        ]
+      },
+      "paper-ink-2": {
+        "role": "neutral",
+        "displayName": "Paper Ink Soft",
+        "canonical": "#2E2366",
+        "tonalRamp": [
+          "#0B012B",
+          "#221457",
+          "#3C3378",
+          "#59529A",
+          "#7772BD",
+          "#9894E1",
+          "#BEBCFD",
+          "#ECEDFE"
+        ]
+      },
+      "sun": {
+        "role": "primary",
+        "displayName": "Sunflower Yellow",
+        "canonical": "#FFC93C",
+        "tonalRamp": [
+          "#110A00",
+          "#2F2203",
+          "#503D0C",
+          "#75590B",
+          "#9B7711",
+          "#C59700",
+          "#F1BC27",
+          "#FFEDC5"
+        ]
+      },
+      "sun-deep": {
+        "role": "primary",
+        "displayName": "Sunflower Deep",
+        "canonical": "#E8890B",
+        "tonalRamp": [
+          "#150800",
+          "#371D02",
+          "#5C350A",
+          "#864E09",
+          "#B2690E",
+          "#DC8829",
+          "#FAB371",
+          "#FEEBDB"
+        ]
+      },
+      "sun-ink": {
+        "role": "primary",
+        "displayName": "Sunflower Ink",
+        "canonical": "#2A1500",
+        "tonalRamp": [
+          "#140800",
+          "#341E06",
+          "#523A23",
+          "#715840",
+          "#92785E",
+          "#B4997F",
+          "#DBBEA3",
+          "#FEEBD8"
+        ]
+      },
+      "seed": {
+        "role": "primary",
+        "displayName": "Seed Brown",
+        "canonical": "#5A3214",
+        "tonalRamp": [
+          "#170600",
+          "#3B1A00",
+          "#5C3416",
+          "#7D5235",
+          "#9F7253",
+          "#C29374",
+          "#EAB898",
+          "#FEEADD"
+        ]
+      },
+      "pink": {
+        "role": "secondary",
+        "displayName": "Wristband Pink",
+        "canonical": "#FF4FA3",
+        "tonalRamp": [
+          "#1D000C",
+          "#470026",
+          "#750743",
+          "#A41962",
+          "#D92483",
+          "#F95DA4",
+          "#FCA7C7",
+          "#FFE7EF"
+        ]
+      },
+      "cyan": {
+        "role": "secondary",
+        "displayName": "Wristband Cyan",
+        "canonical": "#3FE0F0",
+        "tonalRamp": [
+          "#010E10",
+          "#052A2D",
+          "#03494F",
+          "#146A72",
+          "#1D8D98",
+          "#17B3C1",
+          "#38DCEC",
+          "#C8F9FF"
+        ]
+      },
+      "orange": {
+        "role": "secondary",
+        "displayName": "Wristband Orange",
+        "canonical": "#FF8A3D",
+        "tonalRamp": [
+          "#170600",
+          "#3C1902",
+          "#632F0A",
+          "#924509",
+          "#C15D0E",
+          "#ED7A29",
+          "#FDAF82",
+          "#FFEADE"
+        ]
+      },
+      "green": {
+        "role": "secondary",
+        "displayName": "Wristband Green",
+        "canonical": "#6BE38A",
+        "tonalRamp": [
+          "#001003",
+          "#012D10",
+          "#074D21",
+          "#197036",
+          "#23954A",
+          "#3DBA64",
+          "#69E189",
+          "#CAFED3"
+        ]
+      },
+      "violet": {
+        "role": "secondary",
+        "displayName": "Wristband Violet",
+        "canonical": "#9B7BFF",
+        "tonalRamp": [
+          "#0E0129",
+          "#2A055F",
+          "#481498",
+          "#643DBC",
+          "#8260E2",
+          "#A287FE",
+          "#C4BAFA",
+          "#EEECFF"
+        ]
+      },
+      "band-lilac": {
+        "role": "secondary",
+        "displayName": "Quiet Band Lilac",
+        "canonical": "#B9A6FF",
+        "tonalRamp": [
+          "#0F002A",
+          "#2A0B59",
+          "#442D7B",
+          "#624D9D",
+          "#816DC1",
+          "#A28EE5",
+          "#C6B9FB",
+          "#EFECFF"
+        ]
+      },
+      "band-lavender": {
+        "role": "secondary",
+        "displayName": "Quiet Band Lavender",
+        "canonical": "#C2A8FF",
+        "tonalRamp": [
+          "#110028",
+          "#2D0A57",
+          "#482C78",
+          "#664B9A",
+          "#866CBD",
+          "#A78DE2",
+          "#CBB7FE",
+          "#F0EBFE"
+        ]
+      },
+      "quiet-crowd": {
+        "role": "neutral",
+        "displayName": "Quiet Crowd Lilac",
+        "canonical": "#C9C2FF",
+        "tonalRamp": [
+          "#0D002B",
+          "#251A49",
+          "#3F3769",
+          "#5D558A",
+          "#7C75AD",
+          "#9D96D0",
+          "#C2BBF8",
+          "#EEECFE"
+        ]
+      },
+      "gold": {
+        "role": "tertiary",
+        "displayName": "Jackpot Gold",
+        "canonical": "#FFD24A",
+        "tonalRamp": [
+          "#100A00",
+          "#2D2303",
+          "#4F3D02",
+          "#725B10",
+          "#977918",
+          "#C09911",
+          "#EBBE30",
+          "#FEEEC1"
+        ]
+      },
+      "gold-hi": {
+        "role": "tertiary",
+        "displayName": "Jackpot Gold Highlight",
+        "canonical": "#FFF1B8",
+        "tonalRamp": [
+          "#0F0B00",
+          "#2B2404",
+          "#4C3F03",
+          "#6A5D28",
+          "#8A7D48",
+          "#AC9F68",
+          "#D2C58D",
+          "#FDEFB6"
+        ]
+      },
+      "gold-deep": {
+        "role": "tertiary",
+        "displayName": "Jackpot Gold Deep",
+        "canonical": "#B9800A",
+        "tonalRamp": [
+          "#120900",
+          "#322002",
+          "#543A0B",
+          "#7C550B",
+          "#A47211",
+          "#CC922B",
+          "#F4B858",
+          "#FFECD0"
+        ]
+      },
+      "gold-low": {
+        "role": "tertiary",
+        "displayName": "Jackpot Gold Low",
+        "canonical": "#E2A419",
+        "tonalRamp": [
+          "#120900",
+          "#312101",
+          "#543B06",
+          "#785716",
+          "#9F751F",
+          "#CA941F",
+          "#F7B83A",
+          "#FEECCF"
+        ]
+      },
+      "paper-yellow": {
+        "role": "tertiary",
+        "displayName": "Yellow Ticket Stock",
+        "canonical": "#FFD45C",
+        "tonalRamp": [
+          "#100A00",
+          "#2E2202",
+          "#4E3D0B",
+          "#735A09",
+          "#99790F",
+          "#BE9A2A",
+          "#E9BF44",
+          "#FDEDC4"
+        ]
+      },
+      "paper-pink": {
+        "role": "tertiary",
+        "displayName": "Pink Ticket Stock",
+        "canonical": "#FFA3CF",
+        "tonalRamp": [
+          "#1D000F",
+          "#46002B",
+          "#6B1C49",
+          "#8E3D67",
+          "#B15D87",
+          "#D67EA9",
+          "#FAA7CE",
+          "#FEE7F1"
+        ]
+      },
+      "paper-cyan": {
+        "role": "tertiary",
+        "displayName": "Cyan Ticket Stock",
+        "canonical": "#93E7F3",
+        "tonalRamp": [
+          "#000E11",
+          "#012A2F",
+          "#074850",
+          "#196973",
+          "#348B96",
+          "#59ADB9",
+          "#80D4E0",
+          "#CDF8FE"
+        ]
+      },
+      "paper-orange": {
+        "role": "tertiary",
+        "displayName": "Orange Ticket Stock",
+        "canonical": "#FFC29A",
+        "tonalRamp": [
+          "#170600",
+          "#3B1A00",
+          "#623105",
+          "#834F29",
+          "#A66F49",
+          "#C99069",
+          "#F1B58E",
+          "#FEEADE"
+        ]
+      },
+      "paper-green": {
+        "role": "tertiary",
+        "displayName": "Green Ticket Stock",
+        "canonical": "#B2F1C5",
+        "tonalRamp": [
+          "#001005",
+          "#022D15",
+          "#0A4D29",
+          "#306C46",
+          "#518D65",
+          "#72AF85",
+          "#97D5AA",
+          "#C6FFD7"
+        ]
+      },
+      "paper-lavender": {
+        "role": "tertiary",
+        "displayName": "Lavender Ticket Stock",
+        "canonical": "#D6C8FF",
+        "tonalRamp": [
+          "#100127",
+          "#281A44",
+          "#443663",
+          "#625484",
+          "#8174A6",
+          "#A395C9",
+          "#C8BAF1",
+          "#F0EBFF"
+        ]
+      },
+      "paper-quiet": {
+        "role": "tertiary",
+        "displayName": "Quiet Lilac Stock",
+        "canonical": "#F4F1FF",
+        "tonalRamp": [
+          "#0C0A12",
+          "#25222C",
+          "#403E49",
+          "#5E5C67",
+          "#7E7B88",
+          "#9F9CA9",
+          "#C5C2CF",
+          "#EFECFA"
+        ]
+      },
+      "paper-quiet-violet": {
+        "role": "tertiary",
+        "displayName": "Quiet Violet Stock",
+        "canonical": "#E9E3FF",
+        "tonalRamp": [
+          "#0D0719",
+          "#252035",
+          "#413C52",
+          "#5F5A71",
+          "#7F7992",
+          "#A09AB4",
+          "#C6C0DB",
+          "#EFEBFE"
+        ]
+      },
+      "paper-entry": {
+        "role": "tertiary",
+        "displayName": "Entry Ticket Stock",
+        "canonical": "#F6F3FF",
+        "tonalRamp": [
+          "#0C0A11",
+          "#25222B",
+          "#403E47",
+          "#5E5C66",
+          "#7E7B86",
+          "#9F9CA7",
+          "#C5C2CE",
+          "#EFECF8"
+        ]
+      },
+      "reel-face": {
+        "role": "neutral",
+        "displayName": "Reel Face",
+        "canonical": "#F7F3FF",
+        "tonalRamp": [
+          "#0C0A11",
+          "#25222B",
+          "#413E47",
+          "#5F5C66",
+          "#7F7B86",
+          "#A09CA7",
+          "#C6C2CD",
+          "#F0ECF8"
+        ]
+      },
+      "pass-face": {
+        "role": "neutral",
+        "displayName": "Pass Face",
+        "canonical": "#FBF9FF",
+        "tonalRamp": [
+          "#0C0A0E",
+          "#252327",
+          "#403F43",
+          "#5E5D62",
+          "#7E7C81",
+          "#9F9DA3",
+          "#C5C3C9",
+          "#EFEDF3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Jackpot Mark",
+        "purpose": "Doto LED mark on the finale, in gold only."
+      },
+      "headline": {
+        "displayName": "Ticket Title",
+        "purpose": "Grandstander song titles on tickets; the finale birthday line."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Drawer heading, setlist names, pass titles, signatures."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Pull button and other pill buttons."
+      },
+      "body": {
+        "displayName": "Letter",
+        "purpose": "Letter fragments on paper; 18px minimum, max 62ch."
+      },
+      "body-sm": {
+        "displayName": "Supporting",
+        "purpose": "Pass descriptions, setlist previews, notes."
+      },
+      "marquee": {
+        "displayName": "Marquee",
+        "purpose": "Scrolling LED marquee on the cabinet."
+      },
+      "label": {
+        "displayName": "Ticket Print",
+        "purpose": "Doto uppercase stub print, slot label, lanyards."
+      }
+    },
+    "shadows": [
+      {
+        "name": "cabinet-body",
+        "value": "inset 0 2px 0 rgba(255,255,255,.24), inset 0 -12px 24px rgba(5,2,30,.5), 0 30px 56px -14px rgba(3,1,18,.8)",
+        "purpose": "Cabinet top highlight, bottom weight and long cast shadow."
+      },
+      {
+        "name": "recessed-well",
+        "value": "inset 0 3px 9px rgba(0,0,0,.75)",
+        "purpose": "Reel window, marquee, slot mouth."
+      },
+      {
+        "name": "raised-button",
+        "value": "0 14px 26px -12px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.6)",
+        "purpose": "Pull and gift-confirm pills."
+      },
+      {
+        "name": "floating-paper",
+        "value": "drop-shadow(0 24px 30px rgba(3,1,20,.62))",
+        "purpose": "Ticket sheet, as a filter so the perforation mask casts correctly."
+      },
+      {
+        "name": "gift-pass",
+        "value": "0 18px 32px -14px rgba(0,0,0,.7)",
+        "purpose": "Gift pass card at rest."
+      },
+      {
+        "name": "gift-pass-chosen",
+        "value": "0 0 0 3px #FFD24A, 0 22px 36px -12px rgba(255,190,40,.4)",
+        "purpose": "Chosen pass, jackpot finale only."
+      },
+      {
+        "name": "drawer",
+        "value": "0 -20px 40px -10px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.14)",
+        "purpose": "Setlist drawer."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "House ease-out for state changes, sheets and rises."
+      },
+      {
+        "name": "lever-pull",
+        "value": "170ms ease-in (cubic), return 700ms back-overshoot (c1 1.9)",
+        "purpose": "Weighted lever; drag fires past 84% travel."
+      },
+      {
+        "name": "reel-stops",
+        "value": "1000 / 1400 / 1850ms; jackpot 1150 / 1700 / 3400ms; overshoot min(14px, 17% of cell) at 90%",
+        "purpose": "Weighted, staggered reel stops with motion blur in the fast phase."
+      },
+      {
+        "name": "cabinet-thud",
+        "value": "320ms ease-out, 3px drop",
+        "purpose": "Cabinet answers the pull."
+      },
+      {
+        "name": "ticket-print",
+        "value": "720ms cubic-bezier(.2,.75,.25,1), grows from the slot mouth",
+        "purpose": "Ticket prints out of the slot."
+      },
+      {
+        "name": "ticket-fly",
+        "value": "stub tear 620ms + ticket drop 520ms cubic-bezier(.5,0,.75,0)",
+        "purpose": "Saved ticket flies into the setlist."
+      },
+      {
+        "name": "word-reveal",
+        "value": "550ms blur(5px) to clear, 16ms stagger per word",
+        "purpose": "Letter text resolves on the ticket."
+      },
+      {
+        "name": "bulb-chase",
+        "value": "1.9s linear; spinning .65s; quiet 4s at low opacity; jackpot .42s in gold",
+        "purpose": "Cabinet LED rim."
+      },
+      {
+        "name": "crowd-wave",
+        "value": "radial wave through stadium dots; band share .74 (quiet .2); up to 9s",
+        "purpose": "The stadium answers each ticket in its band color."
+      },
+      {
+        "name": "jackpot",
+        "value": "three gold waves at 0 / 700 / 1100ms; constellation petal bloom .8s overshoot; paper, star and butterfly confetti",
+        "purpose": "Jackpot bloom."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations .01ms; canvas renders static frames; no confetti; instant reels and tickets; text shown at once; waits capped at 80ms",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "short",
+        "value": "max-height: 700px"
+      },
+      {
+        "name": "very-short",
+        "value": "max-height: 620px"
+      },
+      {
+        "name": "wide",
+        "value": "min-width: 760px"
+      }
+    ],
+    "openItems": [],
+    "resolvedItems": [
+      {
+        "name": "Font delivery",
+        "body": "Resolved 2026-11-04: latin subsets of Doto 900, Grandstander 800-900 and M PLUS Rounded 1c 500/700/800 inlined as base64 woff2; no font requests."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Pull Button",
+      "kind": "button",
+      "refersTo": "button-pull",
+      "description": "The one primary action: flat sunflower pill in the thumb zone.",
+      "html": "<button class=\"ds-pull\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"5\" r=\"3\" fill=\"currentColor\"/><path d=\"M12 8v8M7 17h10v3H7z\"/></svg>Jalar la palanca</button>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-pull{width:100%;max-width:360px;height:62px;border:0;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--sun);color:#2A1500;font:900 22px/1 var(--font-display);letter-spacing:.005em;box-shadow:0 14px 26px -12px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .15s var(--ease-out),opacity .25s,filter .25s} .ds-pull:active{transform:translateY(2px) scale(.985)} .ds-pull:focus-visible{outline:3px solid #fff;outline-offset:3px} .ds-pull:disabled{opacity:.5;filter:saturate(.6);cursor:default}"
+    },
+    {
+      "name": "Pull Button (Jackpot)",
+      "kind": "button",
+      "refersTo": "button-pull-jackpot",
+      "description": "Jackpot state only: the pull button turns metallic gold.",
+      "html": "<button class=\"ds-pull-gold\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"5\" r=\"3\" fill=\"currentColor\"/><path d=\"M12 8v8M7 17h10v3H7z\"/></svg>Jalar la palanca</button>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-pull-gold{width:100%;max-width:360px;height:62px;border:0;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,var(--gold-hi) 0%,var(--gold) 50%,#E2A419 100%);color:#2A1500;font:900 22px/1 var(--font-display);box-shadow:0 14px 26px -12px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .15s var(--ease-out)} .ds-pull-gold:active{transform:translateY(2px) scale(.985)} .ds-pull-gold:focus-visible{outline:3px solid #fff;outline-offset:3px}"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "icon-button",
+      "description": "Round 44px top-bar button with pink unread badge.",
+      "html": "<button class=\"ds-icon\" aria-label=\"Setlist\"><svg viewBox=\"0 0 24 24\" width=\"21\" height=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M9 18V5l11-2v13\"/><circle cx=\"6\" cy=\"18\" r=\"3\"/><circle cx=\"17\" cy=\"16\" r=\"3\"/></svg><span class=\"ds-badge\">3</span></button>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-icon{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);cursor:pointer;transition:background .2s,transform .2s var(--ease-out)} .ds-icon:hover{background:rgba(255,255,255,.14)} .ds-icon:active{transform:scale(.94)} .ds-icon:focus-visible{outline:3px solid var(--cyan);outline-offset:3px} .ds-badge{position:absolute;top:-5px;right:-5px;min-width:21px;height:21px;padding:0 6px;border-radius:11px;background:var(--pink);color:#fff;font:800 12px/21px var(--font-body);text-align:center;box-shadow:0 3px 8px -2px rgba(0,0,0,.5)}"
+    },
+    {
+      "name": "Ticket",
+      "kind": "card",
+      "refersTo": "ticket",
+      "description": "Song ticket: tinted paper, perforation notches, Doto stub print, ink pill button.",
+      "html": "<div class=\"ds-tk\"><div class=\"ds-tk-main\"><h2 class=\"ds-tk-title\">Yellow</h2><p class=\"ds-tk-text\">Faltan pocos días para tu cumpleaños y no quería que llegaran sin decirte unas cosas.</p><p class=\"ds-tk-sign\">— Andrés</p><button class=\"ds-tk-btn\">Guardar y seguir</button></div><div class=\"ds-tk-stub\"><span>CANCIÓN 01 DE 08<br>FILA 1 · A TU LADO</span></div></div>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-tk{--paper:#FFD45C;--stub-h:66px;position:relative;max-width:420px;background:var(--paper);border-radius:22px;overflow:hidden;color:var(--paper-ink);-webkit-mask:radial-gradient(circle 11px at 0 calc(100% - var(--stub-h)),#0000 97%,#000),radial-gradient(circle 11px at 100% calc(100% - var(--stub-h)),#0000 97%,#000);-webkit-mask-composite:source-in;mask:radial-gradient(circle 11px at 0 calc(100% - var(--stub-h)),#0000 97%,#000),radial-gradient(circle 11px at 100% calc(100% - var(--stub-h)),#0000 97%,#000);mask-composite:intersect} .ds-tk-main{padding:28px 24px 20px} .ds-tk-title{margin:0 0 14px;font:900 clamp(31px,8.8vw,42px)/1 var(--font-display);letter-spacing:-.01em} .ds-tk-text{margin:0;font:500 18.5px/1.6 var(--font-body);color:var(--paper-ink-2);max-width:62ch} .ds-tk-sign{margin:16px 0 18px;text-align:right;font:800 21px/1 var(--font-display)} .ds-tk-btn{width:100%;height:56px;border:0;border-radius:999px;cursor:pointer;background:var(--paper-ink);color:var(--paper);font:800 19px/1 var(--font-display);box-shadow:0 10px 20px -10px rgba(28,18,69,.8);transition:transform .15s} .ds-tk-btn:active{transform:scale(.985)} .ds-tk-btn:focus-visible{outline:3px solid var(--paper-ink);outline-offset:3px} .ds-tk-stub{height:var(--stub-h);border-top:2px dashed rgba(28,18,69,.32);display:flex;align-items:center;padding:0 22px;font:900 12.5px/1.4 var(--font-led);letter-spacing:.07em;text-transform:uppercase;color:var(--paper-ink-2)}"
+    },
+    {
+      "name": "Quiet Ticket",
+      "kind": "card",
+      "refersTo": "ticket-quiet",
+      "description": "Hard fragments: near-white lilac stock, same structure and type.",
+      "html": "<div class=\"ds-tkq\"><h2 class=\"ds-tkq-title\">Hurts Like Heaven</h2><p class=\"ds-tkq-text\">Te tengo que ser honesto: me dolió.</p></div>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-tkq{max-width:420px;padding:28px 24px 24px;background:#F4F1FF;border-radius:22px;color:var(--paper-ink)} .ds-tkq-title{margin:0 0 14px;font:900 36px/1 var(--font-display);letter-spacing:-.01em} .ds-tkq-text{margin:0;font:500 18.5px/1.6 var(--font-body);color:var(--paper-ink-2)}"
+    },
+    {
+      "name": "Marquee",
+      "kind": "custom",
+      "refersTo": "marquee",
+      "description": "Recessed LED dot-matrix marquee in Doto on the cabinet.",
+      "html": "<div class=\"ds-mq\"><div class=\"ds-mq-track\"><span>PARA DAYANA • JALA LA PALANCA • </span><span>PARA DAYANA • JALA LA PALANCA • </span></div></div>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-mq{height:36px;max-width:300px;border-radius:11px;background:#0B0726;overflow:hidden;display:flex;align-items:center;box-shadow:inset 0 2px 7px rgba(0,0,0,.7)} .ds-mq-track{display:flex;white-space:nowrap;animation:ds-mq 16s linear infinite;font:900 20px/1 var(--font-led);letter-spacing:.06em;color:var(--sun)} .ds-mq-track span{padding-right:.6em} @keyframes ds-mq{to{transform:translateX(-50%)}} @media (prefers-reduced-motion:reduce){.ds-mq-track{animation:none}}"
+    },
+    {
+      "name": "Setlist Row",
+      "kind": "nav",
+      "refersTo": "setlist-drawer",
+      "description": "Drawer row: Doto number in band color, Grandstander title, body preview.",
+      "html": "<div class=\"ds-dr\"><button class=\"ds-song\" style=\"--c:#3FE0F0\"><span class=\"ds-num\">03</span><span class=\"ds-t\">Lost!</span><span class=\"ds-p\">Sé que te dije que no me sentía bien...</span></button></div>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-dr{max-width:420px;padding:12px 18px;border-radius:26px 26px 0 0;background:linear-gradient(180deg,#20166A 0%,#140D4A 100%)} .ds-song{width:100%;display:grid;grid-template-columns:44px 1fr;column-gap:10px;align-items:baseline;padding:13px 4px;background:none;border:0;text-align:left;cursor:pointer;border-radius:12px;color:var(--ink)} .ds-song:hover{background:rgba(255,255,255,.05)} .ds-song:focus-visible{outline:3px solid var(--cyan);outline-offset:3px} .ds-num{grid-row:span 2;font:900 20px/1 var(--font-led);color:var(--c)} .ds-t{font:800 19px/1.15 var(--font-display)} .ds-p{font:500 14.5px/1.4 var(--font-body);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"
+    },
+    {
+      "name": "Gift Pass",
+      "kind": "card",
+      "refersTo": "pass-card",
+      "description": "Finale lanyard pass; the gold ring appears only when chosen in the jackpot finale.",
+      "html": "<button class=\"ds-pass is-chosen\" style=\"--pc:#FF4FA3\"><span class=\"ds-lan\">VIP</span><span class=\"ds-card\"><span class=\"ds-top\">PASE 01</span><span class=\"ds-body\"><span class=\"ds-pt\">Cena y girasoles</span><span class=\"ds-pd\">Una cena y un ramo de girasoles.</span></span></span></button>",
+      "css": ":root{--ink:#F5F2FF;--ink-2:#CFC6F5;--paper-ink:#1C1245;--paper-ink-2:#2E2366;--sun:#FFC93C;--pink:#FF4FA3;--cyan:#3FE0F0;--gold:#FFD24A;--gold-hi:#FFF1B8;--ease-out:cubic-bezier(.16,1,.3,1);--font-display:\"Grandstander\",\"Arial Rounded MT Bold\",ui-rounded,system-ui,sans-serif;--font-body:\"M PLUS Rounded 1c\",ui-rounded,system-ui,sans-serif;--font-led:\"Doto\",ui-monospace,Menlo,monospace} .ds-pass{width:240px;display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;cursor:pointer;text-align:left;transition:translate .45s var(--ease-out)} .ds-pass.is-chosen{translate:0 -8px} .ds-pass:focus-visible{outline:3px solid var(--cyan);outline-offset:3px} .ds-lan{width:24px;height:52px;background:var(--pc);color:var(--paper-ink);writing-mode:vertical-rl;font:900 10px/24px var(--font-led);letter-spacing:.2em;text-align:center} .ds-card{display:block;width:100%;border-radius:18px;overflow:hidden;background:#FBF9FF;color:var(--paper-ink);box-shadow:0 18px 32px -14px rgba(0,0,0,.7);transition:box-shadow .35s} .ds-pass.is-chosen .ds-card{box-shadow:0 0 0 3px var(--gold),0 22px 36px -12px rgba(255,190,40,.4)} .ds-top{display:flex;height:40px;align-items:flex-end;justify-content:center;padding-bottom:6px;background:var(--pc);font:900 12px/1 var(--font-led);letter-spacing:.2em} .ds-body{display:block;padding:14px 18px 18px} .ds-pt{display:block;font:900 22px/1.08 var(--font-display)} .ds-pd{display:block;margin-top:6px;font:500 15px/1.45 var(--font-body);color:var(--paper-ink-2)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Cielo lleno de estrellas",
+    "overview": "The page is the \"A Sky Full of Stars\" moment of a one-night concert, held in a phone. A deep indigo-to-violet night is the ground; a stadium bowl of LED wristband dots fills the lower sky and waves in color; a rounded indigo slot cabinet with a chasing LED-bulb rim sits center stage with a panda resting its paws on top, holding a sunflower, wristband glowing. Each pull prints one paper concert ticket of the setlist. The world is playful and warm but never a greeting card: light comes from the crowd, not from hearts.\n\nDensity is one-handed and vertical: a narrow column (460px max), a single full-width primary action in the thumb zone, and everything readable arrives on paper sheets that rise from the bottom. Color is carried by light (wristbands, bulbs, marquee) on the night, and by tinted paper on the tickets. Metallic gold is held back for the jackpot so that its arrival reads as an event.\n\nMotion is part of the world, not decoration: the lever has weight, reels land with overshoot, the crowd answers each ticket with a wave in that ticket's band color, tickets print out of the slot and fly into the setlist. Hard fragments drop the whole stage into quiet mode.",
+    "keyCharacteristics": [
+      "Night ground, light-as-color: wristband LED palette on a vertical indigo-to-violet gradient.",
+      "Sunflower yellow is the single warm primary and the flat action color.",
+      "Metallic gold exists only in the jackpot state.",
+      "Paper tickets per song: tinted stock, perforated stub, Doto print, grain overlay.",
+      "Panda and sunflower are the illustration language, drawn as inline SVG.",
+      "Quiet mode for hard fragments: dimmer crowd, pale paper, slower bulbs, lowered panda.",
+      "Reduced motion collapses every animation to its end state without losing content."
+    ],
+    "rules": [
+      {
+        "name": "The Gold Is The Jackpot Rule",
+        "body": "Metallic gold and gold gradients appear only in the jackpot and its finale. Everywhere else the warm color is flat sunflower. If a non-jackpot surface needs warmth, it uses `sun`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Not Hearts Rule",
+        "body": "Color on the night comes from wristband light (dots, bulbs, marquee, glows), not from pink fills or floating hearts. Hearts exist only as one of the reel symbols.",
+        "section": "colors"
+      },
+      {
+        "name": "The Band Follows The Ticket Rule",
+        "body": "The current song's band color drives the panda's wristband and glow (`--band`), the crowd wave, and the ticket stock is that band's paper tint.",
+        "section": "colors"
+      },
+      {
+        "name": "The Machine Speaks Doto Rule",
+        "body": "Doto is used only for things the machine prints or lights: marquee, counter, stub, slot label, lanyard, pass header, jackpot mark. Never for the letter or for buttons.",
+        "section": "typography"
+      },
+      {
+        "name": "The Letter Stays Readable Rule",
+        "body": "Letter text is never below 18px on paper, never Doto, never uppercase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Is Light Rule",
+        "body": "Glows are always in the emitting color and only on things that emit light (wristbands, bulbs, stars). Paper and buttons get shadows, never glows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the ground the fixed four-stop night gradient (`night-0` to `night-3`) and put color on it as light.",
+      "**Do** use flat `sun` for the primary action and warm accents outside the jackpot.",
+      "**Do** give every new song or ticket a band color from the wristband set and a paper stock that is a light tint of it.",
+      "**Do** print machine text (counts, stubs, labels, marquee) in Doto 900 uppercase; set the letter in M PLUS Rounded 1c at 18px or more.",
+      "**Do** draw panda, sunflower and symbols as inline SVG in the established rounded style.",
+      "**Do** send hard fragments through quiet mode: pale stock, dim crowd, slow bulbs, lowered panda.",
+      "**Do** keep every animation optional: under reduced motion, show the end state with all content.",
+      "**Do** keep tap targets at 44px or larger and the primary action in the thumb zone."
+    ],
+    "donts": [
+      "**Don't** use gold, gold gradients or a gold ring outside the jackpot and finale.",
+      "**Don't** fill surfaces with pink or scatter hearts as decoration; hearts are a reel symbol only.",
+      "**Don't** use emoji, icon fonts or stock icon sets for symbols.",
+      "**Don't** set the letter text in Doto or in uppercase.",
+      "**Don't** use hard offset shadows; shadows are long, soft and downward.",
+      "**Don't** glow paper or buttons; glow is reserved for light sources.",
+      "**Don't** reproduce song lyrics or band logos; songs appear as setlist titles only."
+    ]
+  }
+}
