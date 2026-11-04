@@ -12,7 +12,7 @@ Static single-file HTML (the user asked for "una página web .html"). Code, styl
 
 ## Users
 
-One reader: Dayana Erazo (born 13 November 1997; turns 29 on 13 November 2026), nicknamed "Panda". Address her only as "Panda" or "Pandita", never "mi Panda" (user, 2026-11-04); the full greeting is "¡Feliz precumpleaños, Pandita Erazo!" (his "panditerazo"). She reads it on her phone, a few days before her birthday. She receives the page from her partner (sender signs as Andrés; inferred from the account, confirm before sending). She is the only audience; nobody else is meant to see it.
+One reader: Dayana Erazo, born on 13 November (the year is uncertain, 1997 or 1998, so never mention her age anywhere; only the date matters), nicknamed "Panda". Address her only as "Panda" or "Pandita", never "mi Panda" (user, 2026-11-04); the full greeting is "¡Feliz precumpleaños, Pandita Erazo!" (his "panditerazo"). She reads it on her phone, a few days before her birthday. She receives the page from her partner (sender signs as Andrés; inferred from the account, confirm before sending). She is the only audience; nobody else is meant to see it.
 
 ## Product Purpose
 
@@ -28,21 +28,21 @@ Not a generic birthday card. The letter carries two truths at once: unconditiona
 
 - Opened on a phone, portrait, probably from a WhatsApp link or file. One-hand use, thumb reach.
 - Her birthday is 13 November, and the core framing is that her birthday is not one day but all of November ("tu cumpleaños es todo noviembre"). Countdown copy is computed from the date.
-- Music is a playlist he prepared, part of the gift ("Escucha esta playlist que preparé para ti"): 9 tracks in musica/, opening with their song, Coldplay's "A Sky Full of Stars", then the 8 he supplied ("Siempre Seré" has no known artist yet). It starts on her first tap (browsers block autoplay before a gesture), advances track by track, and the player offers previous/next/mute (iPhone: mute only). Never reproduce lyrics. Keep the link private: the page carries copyrighted songs and their photos.
+- Music is a playlist he prepared, part of the gift ("Escucha esta playlist que preparé para ti"; the entry ticket says "hay una playlist para los dos", and the cassette reads "Para los dos"). Do not call any song "nuestra canción" (user, 2026-11-04). 9 tracks in musica/: Coldplay's "A Sky Full of Stars" plus the 8 he supplied ("Siempre Seré" has no known artist yet), shuffled on every visit. It starts on her first tap (browsers block autoplay before a gesture), advances track by track, and the player offers previous/next/mute (iPhone: mute only). Never reproduce lyrics. Keep the link private: the page carries copyrighted songs and their photos.
 - She loves sunflowers.
 
 ## Capabilities and Constraints
 
 - Slot-machine mechanic is pinned by the user: press a button, reels spin, messages come out.
 - Gift options at the end (confirmed 2026-11-04, in this order): "Collar secreto" (one necklace, for her, with a secret inside); romantic dinner (the one they have pending, at the place she likes, with sunflowers described by metaphor); weekend getaway together (he chooses the destination, a surprise); Amazon gift card.
-- The finale shows the gift choice first; once chosen, it becomes a personalized invitation card (Para / De / Cuándo / Dónde / Incluye / Dress code: Tu sonrisa), followed by the "¡Feliz precumpleaños, Pandita Erazo!" celebration (wish candle, her qualities, the playlist, the 19-photo album, his final message).
+- The finale shows the gift choice first; once chosen, it becomes a personalized invitation card (Para / De / Cuándo / Dónde / Incluye / Dress code: Tu sonrisa), followed by the "¡Feliz precumpleaños, Pandita Erazo!" celebration (wish candle, "Tu vida es un regalo", her qualities, the playlist, the 19-photo album, and his final message on lined paper with a sleeping panda).
 - Her choice is sent to him through WhatsApp with a prefilled message ("Acepto tu invitación: …"). His number is set in the WHATSAPP_NUMBER constant (Colombia, +57).
 - Language: Spanish (Colombian register, warm, informal "tú").
 
 ## Brand Commitments
 
 - Sunflowers are required, and plenty of them (a meadow along the bottom, a garland, blooms from the gift).
-- Pandas: she loves them (added by the user mid-brief). Kawaii baby pandas in the style of the reference he sent: they arrive walking, carry the gift, sit on tickets and on the machine.
+- Pandas: she loves them (added by the user mid-brief). Kawaii baby pandas in the style of the reference he sent, in tender poses: walking, sitting (sentadito), lying on the belly with the chin on the paws and the feet kicking (acostadito), and sleeping (dormidito). They react when tapped (hearts, a happy wiggle, waking up).
 - Coldplay, specifically "A Sky Full of Stars", is the musical thread; the A Head Full of Dreams flower of life lights one circle per ticket and blooms at the jackpot.
 - The letter's content, from the user's own words:
   - He told her he wasn't feeling well and didn't want to do things at that moment, but he loves her.
@@ -58,8 +58,9 @@ Not a generic birthday card. The letter carries two truths at once: unconditiona
 - Tone (confirmed 2026-11-04, final pass): not a request to get back together. It shows his love, wishes her happiness, says happy pre-birthday, and invites both to be well and at peace, loving each other despite everything. Hard truths stay honest in first person, without demands or reproach.
 - Do not say she needs space literally. Say instead that he does all this without pressure and without expecting anything back, to celebrate her pre-birthday, because her birthday is the whole month, and "ya basta de tristezas".
 - "Llevamos 8 años viviendo esta aventura": he wants no more sadness, only beautiful things, and to remember the beautiful better.
+- It must be very clear that no matter what happens she is important to him, and that celebrating her life and seeing it as a gift always matters to him, whether he is angry or not. This is the finale's "Tu vida es un regalo" moment (a heart of sunflowers) and a line in ticket 2.
 - Each ticket names one of her qualities he gave (inteligente, linda, trabajadora, leal, persistente, echada pa'lante, viajera; and "sigue a pesar de todo"), and photo captions say what he values ("Valoro…"). The finale gathers them under "Todo lo que eres" with her age.
-- A birthday baby panda opens the page by walking in with a gift box that blooms into sunflowers, walks onto every ticket, and returns at the end with balloons of her age and a cupcake for a wish-candle moment.
+- A birthday baby panda opens the page by walking in with a gift box that blooms into sunflowers, walks onto every ticket, and returns at the end with a heart balloon, a panda balloon and a cupcake for a wish-candle moment (no age numbers).
 
 ## Evidence on Hand
 

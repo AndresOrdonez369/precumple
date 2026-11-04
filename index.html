@@ -267,7 +267,7 @@ dialog.drawer{
 dialog.drawer[open] .drawer-card{animation:rise .5s var(--ease-out)}
 @keyframes rise{from{transform:translateY(40%);opacity:.4}}
 .drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
-.drawer-head h2{margin:0;font:900 27px/1.05 var(--font-display);color:var(--ink)}
+.drawer-head h2{margin:0;font:900 27px/1.05 var(--font-display);color:var(--ink);text-wrap:balance}
 .setlist{list-style:none;margin:0;padding:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.3) transparent}
 .setlist li+li{border-top:1px dashed rgba(255,255,255,.16)}
 .song{
@@ -762,6 +762,85 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){
   .intro.opened .gb{transform:rotate(var(--gr))}
 }
+/* ---------- round 8: acostadito, sentadito, dormidito ---------- */
+.bp-kick{transform-box:view-box;transform-origin:192px 134px;animation:bp-kick .62s ease-in-out infinite alternate}
+.bp-kick-b{animation-duration:.74s;animation-direction:alternate-reverse}
+@keyframes bp-kick{from{transform:rotate(-13deg)}to{transform:rotate(13deg)}}
+.bp-lie .bp-body{transform-box:fill-box;transform-origin:50% 100%;animation:bp-breathe 3s ease-in-out infinite}
+@keyframes bp-breathe{0%,100%{transform:none}50%{transform:scale(1.012,1.035)}}
+.bp-lie .bp-head{animation:bp-tilt 4.4s ease-in-out infinite}
+.bp-lie.calm .bp-kick{animation:bp-kick-calm 3.6s ease-in-out infinite alternate}
+.bp-lie.calm .bp-kick-b{animation-delay:-1.8s}
+@keyframes bp-kick-calm{from{transform:rotate(-5deg)}to{transform:rotate(6deg)}}
+.bp-lie.sleep .bp-body{animation-duration:4.4s}
+.bp-lie.sleep .bp-head{animation:bp-nod 4.4s ease-in-out infinite}
+@keyframes bp-nod{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg) translateY(2px)}}
+.bp-zzz text{transform-box:fill-box;transform-origin:center;opacity:0;animation:bp-zzz 3.6s ease-in-out infinite}
+.bp-zzz text:nth-child(2){animation-delay:1.2s}
+.bp-zzz text:nth-child(3){animation-delay:2.4s}
+@keyframes bp-zzz{0%{opacity:0;transform:translate(-4px,10px) scale(.5)}25%{opacity:1}80%{opacity:.85}100%{opacity:0;transform:translate(8px,-12px) scale(1.05)}}
+.bp-lie.happy{animation:none}
+.bp-lie.happy .bp-kick{animation-duration:.24s}
+.plop{animation:plop .6s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes plop{0%{transform:translateY(-10%) scale(.92,1.08)}55%{transform:translateY(2%) scale(1.06,.93)}100%{transform:none}}
+
+/* intro: se acuesta al lado del regalo; la etiqueta pasa al otro lado */
+.carrier{cursor:pointer}
+.intro.arrived:not(.opened) .carrier{left:calc(var(--W) * .54)}
+.carrier.lie{width:calc(var(--W) * .5)}
+.intro.arrived .gift-tag{right:auto;left:-17%;padding:7px 18px 7px 12px;border-radius:12px 4px 4px 12px;transform:rotate(-14deg);transform-origin:100% 50%}
+.intro.arrived .gift-tag::before{left:auto;right:6px}
+.intro.opened .gift-tag{transform:translate(-60%,-120%) rotate(-40deg);opacity:0}
+
+/* boletas: acostadito leyendo contigo */
+.tk-baby.lie{width:136px;top:-100px;right:0}
+
+/* máquina: él acostadito mirándola, ella sentadita */
+.pc{pointer-events:auto;cursor:pointer}
+.pc-him.lie{width:60%;margin-right:-8%;transform:none}
+.pc-him.lie .bp{scale:-1 1;animation:none}
+.pc-him.lie .bp-eyes{translate:-1.8px 0}
+#panda.is-quiet .pc-him.lie{transform:none}
+#panda.is-happy .pc-him.lie{animation:none}
+#panda.is-happy .bp-lie .bp-kick{animation-duration:.24s}
+#panda.is-spinning .bp-lie .bp-kick{animation-duration:.34s}
+#panda.is-quiet .bp-lie .bp-kick{animation:bp-kick-calm 3.6s ease-in-out infinite alternate}
+
+/* tu vida es un regalo */
+.life{width:100%;max-width:440px;margin:72px auto 0;display:flex;flex-direction:column;align-items:center}
+.life-heart{position:relative;width:min(86vw,340px)}
+.life-ring{position:relative;display:block;width:100%;aspect-ratio:340/312}
+.lh{position:absolute;aspect-ratio:1;translate:-50% -50%;scale:0;rotate:-8deg;filter:drop-shadow(0 4px 5px rgba(0,0,0,.28))}
+.lh svg{display:block;width:100%;height:100%}
+.life.in .lh{animation:lh-pop .65s cubic-bezier(.3,1.6,.5,1) forwards,lh-sway 3.2s ease-in-out infinite alternate;animation-delay:calc(var(--k) * 60ms),calc(var(--k) * -370ms)}
+@keyframes lh-pop{to{scale:1}}
+@keyframes lh-sway{from{rotate:-8deg}to{rotate:8deg}}
+.life-panda{position:absolute;left:50%;top:27%;width:43%;translate:-50% 0;filter:drop-shadow(0 12px 14px rgba(0,0,0,.4))}
+.life-title{margin:20px auto 0}
+.life-title .y{color:var(--sun)}
+.life-text{margin:12px auto 0;max-width:31ch;font:600 18px/1.55 var(--font-body);color:var(--ink);text-wrap:pretty}
+.life-text b{color:var(--sun);font-weight:800}
+
+/* la carta final, en papel, con el pandita dormido encima */
+.letter-end{position:relative;width:min(90vw,420px);max-width:none;margin:118px auto 8px;padding:34px 24px 14px;border-radius:18px;
+  background:repeating-linear-gradient(180deg,transparent 0 30px,rgba(155,123,255,.22) 30px 31.5px,transparent 31.5px 32px) 0 35px / 100% calc(100% - 82px) no-repeat,#FBF9FF;
+  color:var(--paper-ink);box-shadow:0 24px 44px -18px rgba(0,0,0,.7);transform:rotate(-.8deg)}
+.letter-end .done-text{margin:0;font:500 18px/32px var(--font-body);color:var(--paper-ink);max-width:none;text-align:left}
+.letter-end .done-sign{margin:8px 0 6px;align-self:flex-end;color:#E2306F;font-size:24px}
+.letter-end .done-sign{display:inline-flex;align-items:center;gap:6px}
+.sign-heart{width:26px;height:26px;animation:beat 2.6s ease-in-out infinite}
+.letter-end .link-btn{color:var(--paper-ink-2)}
+.letter-end .link-btn:hover{color:var(--paper-ink)}
+.le-panda{position:absolute;left:50%;top:-112px;width:150px;margin-left:-75px;padding:0;border:0;background:none;cursor:pointer;border-radius:40px}
+.le-panda .bp{filter:drop-shadow(0 8px 8px rgba(0,0,0,.25))}
+
+/* playlist: en orden aleatorio */
+.pl-foot{display:flex;align-items:center;justify-content:center;gap:7px}
+.pl-foot svg{width:16px;height:16px;flex:none;color:var(--sun)}
+
+@media (prefers-reduced-motion:reduce){
+  .lh,.life.in .lh{scale:1;rotate:0deg}
+}
 </style>
 </head>
 <body>
@@ -830,7 +909,7 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
   <header class="hud">
     <p class="counter" id="counter" aria-live="off"><span aria-hidden="true">BOLETA <b id="count">0</b>/<span id="countTotal">7</span></span><span class="sr-only" id="countSr">Boletas recibidas: 0 de 7</span></p>
     <div class="hud-actions">
-      <button class="icon-btn music" id="musicBtn" type="button" data-level="idle" aria-label="Abrir tu playlist">
+      <button class="icon-btn music" id="musicBtn" type="button" data-level="idle" aria-label="Abrir la playlist">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <svg class="mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4Z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg>
         <svg class="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4Z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.3 6.5a8 8 0 0 1 0 11"/></svg>
@@ -941,6 +1020,15 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
       <button class="wish" id="wish" type="button" aria-label="Soplar la vela y pedir un deseo"><span class="wish-balloons" id="wishBalloons" aria-hidden="true"></span><span id="wishPanda"></span></button>
       <p class="wish-text" id="wishText">Pide un deseo y toca la vela</p>
 
+      <section class="life" id="life" aria-labelledby="lifeTitle">
+        <div class="life-heart" aria-hidden="true">
+          <div class="life-ring" id="lifeRing"></div>
+          <span class="life-panda" id="lifePanda"></span>
+        </div>
+        <h3 class="sec-title life-title" id="lifeTitle">Tu vida es <span class="y">un regalo</span></h3>
+        <p class="life-text">Pase lo que pase, <b>siempre vas a ser importante para mí.</b> Celebrar tu vida y verla como un regalo es algo que nunca va a dejar de importarme, esté enojado o no.</p>
+      </section>
+
       <section class="virtues" id="virtues" aria-labelledby="virtuesTitle">
         <h3 class="sec-title" id="virtuesTitle">Todo lo que eres</h3>
         <ul class="patches" id="patches"></ul>
@@ -949,7 +1037,7 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
 
       <section class="mixtape" aria-labelledby="mixTitle">
         <h3 class="sec-title" id="mixTitle">Escucha esta playlist que preparé para ti</h3>
-        <button class="tape-btn" id="tapeBtn" type="button" aria-label="Abrir tu playlist"></button>
+        <button class="tape-btn" id="tapeBtn" type="button" aria-label="Abrir la playlist"></button>
         <p class="mix-now">Suena <b data-np-title></b> <span data-np-artist></span></p>
         <button class="btn-soft" id="openPl" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
@@ -963,7 +1051,8 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
         <p class="photos-hint" aria-hidden="true"><b id="albumCount"></b> · Toca para ver la siguiente</p>
       </section>
 
-      <div class="letter-end">
+      <div class="letter-end" id="letterEnd">
+        <button class="le-panda" id="lePanda" type="button" aria-label="Despertar al pandita"></button>
         <p class="done-text">Sé que no es fácil, Panda, pero gracias por jugar hasta el final. Pase lo que pase entre nosotros, no quiero que alejarnos me impida celebrarte. Te deseo el cumpleaños más bonito del mundo, y te lo voy a decir también ese día. Te amo.</p>
         <p class="done-sign" id="doneSign"></p>
         <button class="link-btn" id="rereadBtn" type="button">Releer mis boletas</button>
@@ -975,7 +1064,7 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
 <dialog class="drawer pl-drawer" id="playlistDlg" aria-labelledby="plTitle">
   <div class="drawer-card">
     <div class="drawer-head">
-      <h2 id="plTitle">Tu playlist</h2>
+      <h2 id="plTitle">Una playlist para los dos</h2>
       <button class="icon-btn" id="plClose" type="button" aria-label="Cerrar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
@@ -1109,7 +1198,7 @@ const ENTRY = {
   photos: [16],
   item: 'sun',
   title: 'Para ti, con todo mi amor',
-  text: 'Tu cumpleaños no es solo un día: es todo noviembre. {CUENTA}, y quise empezar a celebrarte desde ya con algo hecho con mucho amor. Cada vez que jales la palanca, esta máquina te va a soltar una boleta. Son siete, y cada una guarda algo que valoro de ti. Léelas con calma, a tu ritmo, mientras suena la playlist que preparé para ti. Al final te espera un premio.'
+  text: 'Tu cumpleaños no es solo un día: es todo noviembre. Por eso quise empezar a celebrarte desde ya, con algo hecho con mucho amor. Cada vez que jales la palanca, esta máquina te va a soltar una boleta. Son siete, y cada una guarda algo que valoro de ti. Léelas con calma, a tu ritmo, mientras suena la playlist que preparé para ti. Al final te espera un premio.'
 };
 
 // El setlist: cada jalón suelta una boleta. "heading" es el título de la boleta;
@@ -1118,7 +1207,7 @@ const SONGS = [
   { heading: 'Antes que nada', quality: ['Eres inteligente', 'Me encanta cómo piensas y cómo entiendes el mundo.'], photos: [12, 11, 4], item: 'cupcake', song: 'Yellow', paper: '#FFD45C', band: '#FFC93C', combo: ['sun','star','sun'],
     text: '{CASI}, Pandita. Antes que cualquier cosa, quiero que sepas que esto no es para pedirte nada ni para pelear. [[Es para celebrarte.]] Quiero que estés bien, que estés feliz y que en este mes de tu cumpleaños te sientas muy querida, porque te lo mereces.' },
   { heading: 'Lo más importante', quality: ['Eres linda', 'Y cuando quieres, eres la más linda de todas.'], photos: [1, 14, 9], item: 'heart', song: 'Til Kingdom Come', paper: '#FFA3CF', band: '#FF4FA3', combo: ['heart','panda','heart'],
-    text: 'Te amo, Panda. Te lo digo sin rodeos, por si en algún momento lo dudaste. Sé que no siempre ha sido fácil, que a veces me cuesta demostrártelo y que, por errores míos, te has sentido poco querida. Pero [[eres importante para mí]]: lo has sido antes, lo eres ahora y lo serás toda la vida. Eso no cambia con nada.' },
+    text: 'Te amo, Panda. Te lo digo sin rodeos, por si en algún momento lo dudaste. Sé que no siempre ha sido fácil, que a veces me cuesta demostrártelo y que, por errores míos, te has sentido poco querida. Pero [[eres importante para mí]]: lo has sido antes, lo eres ahora y lo serás toda la vida. Eso no cambia con nada, ni siquiera cuando estoy enojado.' },
   { heading: 'Lo que me estaba pasando', quality: ['Eres trabajadora', 'Te he visto darlo todo por lo que quieres.'], photos: [18, 2, 13], item: 'star', song: 'Lost!', paper: '#93E7F3', band: '#3FE0F0', combo: ['planet','star','panda'],
     text: 'Sé que lo intentaste la última vez, y lo valoro de verdad. También quiero que entiendas lo que me pasaba: te dije que no me sentía bien porque mi corazón estaba cansado. He venido malito, hay cositas que me duelen y estoy aprendiendo a cuidarme. [[No fue falta de amor.]] Fue que necesitaba sostenerme a mí mismo un ratico.' },
   { heading: 'Me dolió', quality: ['Eres leal', 'Tu lealtad vale muchísimo, y yo lo sé.'], photos: [10, 17], item: 'heart', song: 'Hurts Like Heaven', paper: '#F4F1FF', band: '#B9A6FF', quiet: true, combo: ['heart','planet','star'],
@@ -1158,6 +1247,7 @@ const buzz = p => { try { if (navigator.userActivation && !navigator.userActivat
 const pad = n => String(n).padStart(2, '0');
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
 const live = msg => { const el = $('#live'); el.textContent = ''; setTimeout(() => { el.textContent = msg; }, 40); };
+const replay = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
 
 /* ---------- persistence ---------- */
 const KEY = 'dayana-maquina-v1';
@@ -1353,12 +1443,12 @@ const Confetti = (() => {
     W = innerWidth; H = innerHeight; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  function add(n, ox, oy, angle, spread, power, colors, petalShare = .22) {
+  function add(n, ox, oy, angle, spread, power, colors, petalShare = .22, only = '') {
     for (let i = 0; i < n; i++) {
       const a = angle + (Math.random() - .5) * spread, v = power * (.55 + Math.random() * .65), r = Math.random();
       parts.push({ x: typeof ox === 'function' ? ox() : ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v,
-        rot: Math.random() * 6.283, vr: (Math.random() - .5) * .28, w: 6 + Math.random() * 6, h: 9 + Math.random() * 8,
-        c: colors[i % colors.length], c2: Math.random() < .5 ? '#FFC93C' : '#F2A51C', kind: r < petalShare ? 'petal' : r < petalShare + .12 ? 'star' : r < petalShare + .26 ? 'fly' : 'paper',
+        rot: only === 'heart' ? (Math.random() - .5) * .6 : Math.random() * 6.283, vr: (Math.random() - .5) * (only === 'heart' ? .05 : .28), w: 6 + Math.random() * 6, h: 9 + Math.random() * 8,
+        c: colors[i % colors.length], c2: Math.random() < .5 ? '#FFC93C' : '#F2A51C', kind: only || (r < petalShare ? 'petal' : r < petalShare + .12 ? 'star' : r < petalShare + .26 ? 'fly' : 'paper'),
         f: Math.random() * 6.283, fs: .1 + Math.random() * .18, sw: Math.random() * 6.283 });
     }
     if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
@@ -1376,6 +1466,10 @@ const Confetti = (() => {
         ctx.scale(1, Math.cos(p.f)); ctx.beginPath(); ctx.ellipse(0, 0, p.w * .42, p.h * .78, 0, 0, 6.283); ctx.fill();
       } else if (p.kind === 'paper') {
         ctx.scale(1, Math.cos(p.f)); ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      } else if (p.kind === 'heart') {
+        const s = p.w / 7;
+        ctx.scale(s, s); ctx.beginPath();
+        ctx.moveTo(0, 4.2); ctx.bezierCurveTo(-7.4, -.6, -5.2, -8.2, 0, -3.6); ctx.bezierCurveTo(5.2, -8.2, 7.4, -.6, 0, 4.2); ctx.fill();
       } else if (p.kind === 'star') {
         ctx.beginPath();
         for (let i = 0; i < 10; i++) { const rr = i % 2 ? 2.6 : 6.4, a = -Math.PI / 2 + i * Math.PI / 5; ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr); }
@@ -1401,7 +1495,8 @@ const Confetti = (() => {
       setTimeout(() => add(90, () => Math.random() * W, -20, Math.PI / 2, .7, 2, cols), 900);
     },
     puff(x, y) { if (!reduced) add(40, x, y, -Math.PI / 2, 2.4, 9, GOLD.concat(['#FF7FB8'])); },
-    petals(x, y) { if (!reduced) add(60, x, y, -Math.PI / 2, 2.6, 10, GOLD.concat(['#FF7FB8', '#FFC93C']), .7); }
+    petals(x, y) { if (!reduced) add(60, x, y, -Math.PI / 2, 2.6, 10, GOLD.concat(['#FF7FB8', '#FFC93C']), .7); },
+    hearts(x, y) { if (!reduced) add(16, x, y, -Math.PI / 2, 1.5, 7.5, ['#FF4F8B', '#FF7FB8', '#E2306F', '#FFB0C8'], 0, 'heart'); }
   };
 })();
 
@@ -1417,6 +1512,8 @@ const PLAYLIST = [
   { t: 'La Cuarta Estrella', a: 'Palmito', f: 'musica/08-la-cuarta-estrella.mp3', d: 139 },
   { t: 'Corazón de Acero', a: 'Yiyo Sarante', f: 'musica/09-corazon-de-acero.mp3', d: 226 }
 ];
+// En orden aleatorio: cada vez que abra la página, la playlist se mezcla.
+for (let i = PLAYLIST.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [PLAYLIST[i], PLAYLIST[j]] = [PLAYLIST[j], PLAYLIST[i]]; }
 const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
 const PL_MIN = Math.round(PLAYLIST.reduce((n, t) => n + t.d, 0) / 60);
 // Un casete hecho a mano: la cinta gira mientras suena la música.
@@ -1431,7 +1528,7 @@ function cassetteSVG() {
     <rect x="28" y="22" width="244" height="112" rx="10" fill="#FBF9FF" stroke="#2B2734" stroke-width="3"/>
     <path d="M28 46 V32 a10 10 0 0 1 10 -10 H262 a10 10 0 0 1 10 10 V46Z" fill="#FFC93C" stroke="#2B2734" stroke-width="3"/>
     <text x="42" y="40" font-family="Doto, monospace" font-weight="900" font-size="12.5" letter-spacing="1.4" fill="#2B2734">LADO A · NOVIEMBRE</text>
-    <text x="150" y="72" text-anchor="middle" font-family="Grandstander, sans-serif" font-weight="900" font-size="22" fill="#1C1245">Para Pandita</text>
+    <text x="150" y="72" text-anchor="middle" font-family="Grandstander, sans-serif" font-weight="900" font-size="22" fill="#1C1245">Para los dos</text>
     <rect x="78" y="82" width="144" height="40" rx="20" fill="#2B2734"/>
     <circle cx="106" cy="102" r="19" fill="#6B4A3A"/><circle cx="194" cy="102" r="15.5" fill="#6B4A3A"/>
     ${reel(106, 'reel-l')}${reel(194, 'reel-r')}
@@ -1483,7 +1580,7 @@ const Music = (() => {
     const playing = started && !a.paused, t = PLAYLIST[idx];
     const btn = $('#musicBtn');
     btn.dataset.level = !playing ? 'idle' : a.muted ? 'off' : 'high';
-    btn.setAttribute('aria-label', playing ? `Tu playlist: suena ${t.t}` : 'Abrir tu playlist');
+    btn.setAttribute('aria-label', playing ? `La playlist para los dos: suena ${t.t}` : 'Abrir la playlist');
     document.body.classList.toggle('music-on', playing && !a.muted);
     $$('.cassette').forEach(c => c.classList.toggle('is-playing', playing));
     $$('#plList li').forEach((li, i) => { li.classList.toggle('on', i === idx); li.firstElementChild.setAttribute('aria-current', String(i === idx)); });
@@ -1509,7 +1606,7 @@ const plDlg = $('#playlistDlg');
 $('#plTape').innerHTML = cassetteSVG();
 $('#tapeBtn').innerHTML = cassetteSVG();
 $('#plList').innerHTML = PLAYLIST.map((t, i) => `<li><button type="button" data-i="${i}"><span class="n">${pad(i + 1)}</span><span class="tt"><b>${esc(t.t)}</b>${t.a ? `<small>${esc(t.a)}</small>` : ''}</span><span class="d">${fmtTime(t.d)}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button></li>`).join('');
-$('#plFoot').textContent = `${PLAYLIST.length} canciones · ${PL_MIN} min · hecha con amor para ti`;
+$('#plFoot').innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3.5c2.4 0 3.6 1.1 5 3.4l1 1.7c1.4 2.3 2.6 3.4 5 3.4H21"/><path d="M3 17h3.5c1.5 0 2.5-.5 3.4-1.4M14.1 8.4C15 7.5 16 7 17.5 7H21"/><path d="m18.5 4.5 2.5 2.5-2.5 2.5M18.5 13 21 15.5 18.5 18"/></svg>${PLAYLIST.length} canciones · ${PL_MIN} min · en orden aleatorio`;
 function openPlaylist() { if (!plDlg.open) plDlg.showModal(); Music.render(); }
 $('#musicBtn').addEventListener('click', openPlaylist);
 $('#tapeBtn').addEventListener('click', openPlaylist);
@@ -1547,7 +1644,7 @@ const app = $('#app'), cabinet = $('#cabinet'), pandaEl = $('#panda'), pullBtn =
 const sheet = $('#sheet'), tkWrap = $('#tkWrap'), ticket = $('#ticket'), tkBtn = $('#tkBtn');
 const drawer = $('#drawer'), finale = $('#finale');
 const reels = $$('.reel');
-$('#doneSign').textContent = '— ' + FIRMA;
+$('#doneSign').innerHTML = `— ${esc(FIRMA)} <svg class="sign-heart" viewBox="0 0 100 100" aria-hidden="true"><use href="#sym-heart" width="100" height="100"/></svg>`;
 
 /* ---------- marquee + panda + rim ---------- */
 function setMarquee(text) { $$('.mq').forEach(s => { s.textContent = (text + ' ').repeat(4); }); }
@@ -1772,7 +1869,40 @@ const BABY_ITEMS = {
       <g class="bp-smoke" fill="none" stroke="#E9E3FF" stroke-width="2" stroke-linecap="round"><path d="M0 -28 C-5 -34 5 -38 0 -46"/><path d="M3 -30 C7 -36 -2 -42 4 -50"/></g>
     </g>`
 };
-// item: lo que abraza o sostiene · acc: 'hat' (gorrito) | 'bow' (corbatín) | 'none' (copete)
+/// La cabecita, igual en todas las poses: orejas, manchas, ojos, guiño, cachetes y gorrito o copete.
+function pandaHead(acc = 'none') {
+  const hat = `<g transform="translate(84 21) rotate(13)">
+        <path d="M-17 2 L0 -40 L17 2Z" fill="#FF4FA3" ${PS}/>
+        <path d="M-5.7 -26 L5.7 -26 L8.1 -20 L-8.1 -20Z" fill="#FFC93C"/>
+        <path d="M-11.3 -12 L11.3 -12 L13.8 -6 L-13.8 -6Z" fill="#3FE0F0"/>
+        <path d="M-19 2 Q0 9 19 2" fill="none" stroke="#FFF1B8" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="0" cy="-42" r="6.5" fill="#FFC93C" ${PS}/>
+      </g>`;
+  const tuft = `<g class="bp-tuft"><path d="M70 21 C68 11 77 5 88 7 C83 9 81 12 82 16 C86 12 94 12 98 16 C92 17 89 19 88 22 Z" fill="#FFFFFF"/>
+        <path d="M70 21 C68 11 77 5 88 7 C83 9 81 12 82 16 C86 12 94 12 98 16 C92 17 89 19 88 22" fill="none" stroke="${P_INK}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  const eye = (cx, cls_) => `<g class="bp-eye ${cls_}"><ellipse cx="${cx}" cy="71" rx="7.4" ry="8.4" fill="${P_EYE}"/><circle cx="${cx + 3}" cy="66.8" r="3.1" fill="#fff"/><circle cx="${cx - 2.6}" cy="74.6" r="1.5" fill="#fff"/></g>`;
+  return `<g class="bp-head">
+      <circle class="bp-ear bp-ear-l" cx="35" cy="30" r="17" fill="${P_GREY}" ${PS}/>
+      <circle class="bp-ear bp-ear-r" cx="125" cy="27" r="17" fill="${P_GREY}" ${PS}/>
+      <path d="M80 18 C121 18 143 42 143 68 C143 97 116 113 80 113 C44 113 17 97 17 68 C17 42 39 18 80 18Z" fill="#FFFFFF" ${PS}/>
+      <path d="M28 90 C40 104 60 109 80 109 C100 109 120 104 132 90 C122 103 102 108.5 80 108.5 C58 108.5 38 103 28 90Z" fill="#ECE9F5"/>
+      ${acc === 'hat' ? '' : tuft}
+      <ellipse cx="50" cy="71" rx="21" ry="15.5" transform="rotate(-12 50 71)" fill="${P_GREY}"/>
+      <ellipse cx="110" cy="71" rx="21" ry="15.5" transform="rotate(12 110 71)" fill="${P_GREY}"/>
+      <g class="bp-eyes">${eye(56, 'bp-eye-l')}${eye(104, 'bp-eye-r')}</g>
+      <path class="bp-wink" d="M96 73 Q104 64 112 73" fill="none" stroke="${P_EYE}" stroke-width="3.4" stroke-linecap="round"/>
+      <g class="bp-happy" fill="none" stroke="${P_EYE}" stroke-width="3.4" stroke-linecap="round"><path d="M48 73 Q56 64 64 73"/><path d="M96 73 Q104 64 112 73"/></g>
+      <g class="bp-calm" fill="none" stroke="${P_EYE}" stroke-width="3" stroke-linecap="round"><path d="M48 70 Q56 77 64 70"/><path d="M96 70 Q104 77 112 70"/></g>
+      <path d="M74.5 82.5 Q80 80 85.5 82.5 Q84 88 80 89 Q76 88 74.5 82.5Z" fill="${P_EYE}"/>
+      <ellipse cx="78" cy="83" rx="1.8" ry=".9" fill="#fff" opacity=".7"/>
+      <path d="M80 89 L80 92" stroke="${P_EYE}" stroke-width="2" stroke-linecap="round"/>
+      <g class="bp-mouth-open"><path d="M71 91.5 Q72 103.5 80 103.5 Q88 103.5 89 91.5 Q80 93.5 71 91.5Z" fill="#4B1E32" stroke="${P_EYE}" stroke-width="2" stroke-linejoin="round"/><path d="M74.6 98.8 Q80 95.4 85.4 98.8 Q84 102.6 80 102.6 Q76 102.6 74.6 98.8Z" fill="#FF8FAE"/></g>
+      <path class="bp-mouth-soft" d="M73 92 Q76.5 96 80 92.6 Q83.5 96 87 92" fill="none" stroke="${P_EYE}" stroke-width="2.2" stroke-linecap="round"/>
+      <ellipse cx="33" cy="88" rx="9" ry="5.6" fill="#FFB0C8" opacity=".75"/><ellipse cx="127" cy="88" rx="9" ry="5.6" fill="#FFB0C8" opacity=".75"/>
+      ${acc === 'hat' ? hat : ''}
+    </g>`;
+}
+// Sentadito. item: lo que abraza o sostiene · acc: 'hat' (gorrito) | 'bow' (corbatín) | 'none' (copete)
 // wave: saluda · band: manilla de luz · love: corazoncito · cls: walk | happy | calm | winky
 function babyPanda({ item = 'none', wave = false, acc = 'none', band = false, love = false, cls = '' } = {}) {
   const hug = item === 'heart' || item === 'sun' || item === 'star';
@@ -1803,17 +1933,7 @@ function babyPanda({ item = 'none', wave = false, acc = 'none', band = false, lo
   }
   const bandAt = hug ? 'translate(67 126) rotate(-20)' : 'translate(63.5 147)';
   const wristband = band && !wave ? `<g class="bp-band" transform="${bandAt}"><ellipse class="bp-band-glow" rx="13" ry="6"/><ellipse class="bp-band-fill" rx="11" ry="4"/><g fill="#fff"><circle cx="-5" r="1.1"/><circle r="1.1"/><circle cx="5" r="1.1"/></g></g>` : '';
-  const hat = `<g transform="translate(84 21) rotate(13)">
-        <path d="M-17 2 L0 -40 L17 2Z" fill="#FF4FA3" ${PS}/>
-        <path d="M-5.7 -26 L5.7 -26 L8.1 -20 L-8.1 -20Z" fill="#FFC93C"/>
-        <path d="M-11.3 -12 L11.3 -12 L13.8 -6 L-13.8 -6Z" fill="#3FE0F0"/>
-        <path d="M-19 2 Q0 9 19 2" fill="none" stroke="#FFF1B8" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="0" cy="-42" r="6.5" fill="#FFC93C" ${PS}/>
-      </g>`;
-  const tuft = `<g class="bp-tuft"><path d="M70 21 C68 11 77 5 88 7 C83 9 81 12 82 16 C86 12 94 12 98 16 C92 17 89 19 88 22 Z" fill="#FFFFFF"/>
-        <path d="M70 21 C68 11 77 5 88 7 C83 9 81 12 82 16 C86 12 94 12 98 16 C92 17 89 19 88 22" fill="none" stroke="${P_INK}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>`;
   const bow = `<g class="bp-bow"><path d="M80 116 L67 109.5 L67 122.5Z" fill="#3FE0F0" stroke="${P_INK}" stroke-width="2.2" stroke-linejoin="round"/><path d="M80 116 L93 109.5 L93 122.5Z" fill="#3FE0F0" stroke="${P_INK}" stroke-width="2.2" stroke-linejoin="round"/><circle cx="80" cy="116" r="4" fill="#20B3C6" stroke="${P_INK}" stroke-width="2"/></g>`;
-  const eye = (cx, cls_) => `<g class="bp-eye ${cls_}"><ellipse cx="${cx}" cy="71" rx="7.4" ry="8.4" fill="${P_EYE}"/><circle cx="${cx + 3}" cy="66.8" r="3.1" fill="#fff"/><circle cx="${cx - 2.6}" cy="74.6" r="1.5" fill="#fff"/></g>`;
   return `<svg class="bp ${cls}" viewBox="0 -32 160 202" aria-hidden="true">
     ${wave ? `<g class="bp-wave"><rect x="45" y="58" width="20" height="54" rx="10" transform="rotate(-44 55 108)" fill="${P_GREY}" ${PS}/></g>` : ''}
     <path class="bp-torso" d="M50 108 C44 128 45 150 55 165 L105 165 C115 150 116 128 110 108 Z" fill="#FFFFFF" ${PS}/>
@@ -1821,33 +1941,48 @@ function babyPanda({ item = 'none', wave = false, acc = 'none', band = false, lo
     ${legs}
     ${arms}
     ${wristband}
-    <g class="bp-head">
-      <circle class="bp-ear bp-ear-l" cx="35" cy="30" r="17" fill="${P_GREY}" ${PS}/>
-      <circle class="bp-ear bp-ear-r" cx="125" cy="27" r="17" fill="${P_GREY}" ${PS}/>
-      <path d="M80 18 C121 18 143 42 143 68 C143 97 116 113 80 113 C44 113 17 97 17 68 C17 42 39 18 80 18Z" fill="#FFFFFF" ${PS}/>
-      <path d="M28 90 C40 104 60 109 80 109 C100 109 120 104 132 90 C122 103 102 108.5 80 108.5 C58 108.5 38 103 28 90Z" fill="#ECE9F5"/>
-      ${acc === 'hat' ? '' : tuft}
-      <ellipse cx="50" cy="71" rx="21" ry="15.5" transform="rotate(-12 50 71)" fill="${P_GREY}"/>
-      <ellipse cx="110" cy="71" rx="21" ry="15.5" transform="rotate(12 110 71)" fill="${P_GREY}"/>
-      <g class="bp-eyes">${eye(56, 'bp-eye-l')}${eye(104, 'bp-eye-r')}</g>
-      <path class="bp-wink" d="M96 73 Q104 64 112 73" fill="none" stroke="${P_EYE}" stroke-width="3.4" stroke-linecap="round"/>
-      <g class="bp-happy" fill="none" stroke="${P_EYE}" stroke-width="3.4" stroke-linecap="round"><path d="M48 73 Q56 64 64 73"/><path d="M96 73 Q104 64 112 73"/></g>
-      <g class="bp-calm" fill="none" stroke="${P_EYE}" stroke-width="3" stroke-linecap="round"><path d="M48 70 Q56 77 64 70"/><path d="M96 70 Q104 77 112 70"/></g>
-      <path d="M74.5 82.5 Q80 80 85.5 82.5 Q84 88 80 89 Q76 88 74.5 82.5Z" fill="${P_EYE}"/>
-      <ellipse cx="78" cy="83" rx="1.8" ry=".9" fill="#fff" opacity=".7"/>
-      <path d="M80 89 L80 92" stroke="${P_EYE}" stroke-width="2" stroke-linecap="round"/>
-      <g class="bp-mouth-open"><path d="M71 91.5 Q72 103.5 80 103.5 Q88 103.5 89 91.5 Q80 93.5 71 91.5Z" fill="#4B1E32" stroke="${P_EYE}" stroke-width="2" stroke-linejoin="round"/><path d="M74.6 98.8 Q80 95.4 85.4 98.8 Q84 102.6 80 102.6 Q76 102.6 74.6 98.8Z" fill="#FF8FAE"/></g>
-      <path class="bp-mouth-soft" d="M73 92 Q76.5 96 80 92.6 Q83.5 96 87 92" fill="none" stroke="${P_EYE}" stroke-width="2.2" stroke-linecap="round"/>
-      <ellipse cx="33" cy="88" rx="9" ry="5.6" fill="#FFB0C8" opacity=".75"/><ellipse cx="127" cy="88" rx="9" ry="5.6" fill="#FFB0C8" opacity=".75"/>
-      ${acc === 'hat' ? hat : ''}
-    </g>
+    ${pandaHead(acc)}
     ${acc === 'bow' ? bow : ''}
     ${love ? '<g class="bp-love"><use href="#sym-heart" x="128" y="-6" width="24" height="24"/></g>' : ''}
   </svg>`;
 }
-// Los dos pandas bebé de la máquina: él abraza un corazón (y lleva la manilla), ella un girasol.
+// Acostadito boca abajo: la carita sobre las patitas y los pies arriba, pataleando.
+// sleep: dormidito (ojitos cerrados y zzz) · calm: tranquilo · item: entre las patitas (heart | sun | star)
+function lyingPanda({ item = 'none', acc = 'none', love = false, band = false, sleep = false, calm = false, cls = '' } = {}) {
+  const toe = (cx, cy, rot) => `<ellipse cx="${cx}" cy="${cy}" rx="3.2" ry="3.8" transform="rotate(${rot} ${cx} ${cy})" fill="${P_PAD}"/>`;
+  // cada pierna sale de la cadera (204,134), por detrás del cuerpo, con la plantita a la vista
+  const foot = (k, rot) => `<g class="bp-kick bp-kick-${k}"><g transform="rotate(${rot} 192 134)">
+      <rect x="177" y="60" width="30" height="80" rx="15" fill="${P_GREY}" ${PS}/>
+      <ellipse cx="192" cy="82" rx="10" ry="8" fill="${P_PAD}"/>${toe(183.4, 69.5, -14)}${toe(192, 67, 0)}${toe(200.6, 69.5, 14)}
+    </g></g>`;
+  const ITEMS = {
+    heart: '<use href="#sym-heart" x="69" y="139" width="30" height="30"/>',
+    sun: '<use href="#sym-sun" x="65" y="135" width="38" height="38"/>',
+    star: '<use href="#sym-star" x="67" y="137" width="34" height="34"/>'
+  };
+  const wristband = band ? '<g class="bp-band" transform="translate(132 152) rotate(84)"><ellipse class="bp-band-glow" rx="12" ry="5.5"/><ellipse class="bp-band-fill" rx="10.5" ry="3.8"/><g fill="#fff"><circle cx="-4.5" r="1"/><circle r="1"/><circle cx="4.5" r="1"/></g></g>' : '';
+  const zzz = sleep ? '<g class="bp-zzz" font-family="Grandstander, sans-serif" font-weight="900" fill="#E9E3FF" stroke="#2B2734" stroke-width="2.4" paint-order="stroke"><text x="146" y="44" font-size="20">z</text><text x="161" y="25" font-size="25">z</text><text x="178" y="4" font-size="31">Z</text></g>' : '';
+  const mood = sleep ? 'calm sleep' : calm ? 'calm' : '';
+  return `<svg class="bp bp-lie ${mood} ${cls}" viewBox="0 -34 252 208" aria-hidden="true">
+    ${foot('b', 34)}${foot('a', 10)}
+    <circle cx="229" cy="133" r="9" fill="#FFFFFF" ${PS}/>
+    <path class="bp-body" d="M60 130 C62 108 96 100 136 100 C176 100 208 106 222 128 C232 145 224 166 204 168 L80 168 C66 168 58 152 60 130Z" fill="#FFFFFF" ${PS}/>
+    <ellipse cx="156" cy="160" rx="50" ry="5.5" fill="#ECE9F5"/>
+    <g transform="translate(4 36)">${pandaHead(acc)}</g>
+    <g class="bp-paws">
+      <ellipse cx="55" cy="155" rx="24" ry="13" fill="${P_GREY}" ${PS}/>
+      <ellipse cx="113" cy="155" rx="24" ry="13" fill="${P_GREY}" ${PS}/>
+      <g fill="${P_PAD}"><circle cx="45" cy="158.5" r="2.6"/><circle cx="54" cy="161" r="2.6"/><circle cx="63" cy="160" r="2.6"/><circle cx="105" cy="160" r="2.6"/><circle cx="114" cy="161" r="2.6"/><circle cx="123" cy="158.5" r="2.6"/></g>
+    </g>
+    ${ITEMS[item] || ''}
+    ${wristband}
+    ${zzz}
+    ${love ? '<g class="bp-love"><use href="#sym-heart" x="152" y="-4" width="26" height="26"/></g>' : ''}
+  </svg>`;
+}
+// Los dos pandas bebé de la máquina: él acostadito con su corazón (y la manilla), ella sentadita con un girasol.
 function coupleHTML() {
-  return `<div class="pc pc-him">${babyPanda({ item: 'heart', band: true })}</div>
+  return `<div class="pc pc-him lie">${lyingPanda({ item: 'heart', band: true })}</div>
     <div class="pc pc-her">${babyPanda({ item: 'sun', acc: 'hat', cls: 'winky' })}</div>
     <span class="pc-love" aria-hidden="true">
       <svg class="pc-heart" viewBox="0 0 100 100"><use href="#sym-heart" width="100" height="100"/></svg>
@@ -1884,25 +2019,26 @@ function garlandSVG(n = 7) {
   return s + '</svg>';
 }
 
-/* ---------- su cumpleaños: 13 de noviembre de 1997 (y todo noviembre es su mes) ---------- */
+/* ---------- su cumpleaños: el 13 de noviembre (y todo noviembre es su mes) ---------- */
+// Solo importa la fecha: no se menciona la edad en ningún lado.
 function birthdayInfo(now = new Date()) {
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  let year = today.getFullYear();
-  let bday = new Date(year, 10, 13);
-  if ((today - bday) / 86400000 > 45) { year += 1; bday = new Date(year, 10, 13); }
-  return { days: Math.round((bday - today) / 86400000), age: year - 1997 };
+  let bday = new Date(today.getFullYear(), 10, 13);
+  if ((today - bday) / 86400000 > 45) bday = new Date(today.getFullYear() + 1, 10, 13);
+  return { days: Math.round((bday - today) / 86400000) };
 }
 const BDAY = birthdayInfo();
+// "faltan 9 días para el 13" · "mañana es el 13" · "hoy es el 13"
 function countdownPhrase() {
-  const { days, age } = BDAY;
-  if (days > 1) return `Faltan ${days} días para tus ${age} años`;
-  if (days === 1) return `Mañana cumples ${age} años`;
-  if (days === 0) return `Hoy cumples ${age} años`;
-  return `Acabas de cumplir ${age} años`;
+  const { days } = BDAY;
+  if (days > 1) return `faltan ${days} días para el 13`;
+  if (days === 1) return 'mañana es el 13';
+  if (days === 0) return 'hoy es el 13';
+  return 'te sigo celebrando';
 }
 function fillTokens(text) {
   const casi = BDAY.days > 0 ? 'Ya casi es tu cumpleaños' : BDAY.days === 0 ? 'Hoy es tu cumpleaños' : 'Acaba de pasar tu cumpleaños';
-  return text.replace('{CUENTA}', countdownPhrase()).replace('{CASI}', casi).replace('{EDAD}', String(BDAY.age));
+  return text.replace('{CASI}', casi);
 }
 
 /* ---------- intro: el pandita llega caminando con tu regalo ---------- */
@@ -1921,7 +2057,14 @@ function introArrive() {
   introArrived = true;
   introEl.classList.remove('walking');
   introEl.classList.add('arrived');
-  $('#introPanda').innerHTML = babyPanda({ wave: true, love: true, cls: 'winky' });
+  // deja el regalo, da unos pasitos a un lado y se acuesta a esperarla, pataleando
+  const carrier = $('#introPanda');
+  setTimeout(() => {
+    if (introEl.classList.contains('opened')) return;
+    carrier.classList.add('lie');
+    carrier.innerHTML = lyingPanda({ love: true, cls: 'winky' });
+    replay(carrier, 'plop');
+  }, reduced ? 0 : 950);
   giftBtn.disabled = false;
   $('#introHint').innerHTML = 'Tienes un regalo<span>Tócalo para abrirlo</span>';
   live('El pandita te trajo un regalo. Tócalo para abrirlo.');
@@ -1934,7 +2077,7 @@ function showIntro() {
   sunflowerRow($('#iMeadow'), { n: 9, minH: 22, maxH: 60, minS: 22, maxS: 38 });
   const t = $('#introTitle');
   t.innerHTML = lettersHTML(t.dataset.text);
-  $('.intro-sub').textContent = `Tu cumpleaños es todo noviembre. ${countdownPhrase()}.`;
+  $('.intro-sub').textContent = `Tu cumpleaños es todo noviembre, y ${countdownPhrase()}.`;
   $('#introHint').innerHTML = 'Mira quién viene…<span>Trae algo para ti</span>';
   if (reduced) introArrive();
   else { introEl.classList.add('walking'); setTimeout(introArrive, 2750); }
@@ -1945,7 +2088,10 @@ giftBtn.addEventListener('click', async () => {
   buzz(18);
   await wait(420);
   introEl.classList.add('opened');
-  $('#introPanda').innerHTML = babyPanda({ love: true, cls: 'happy' });
+  const carrier = $('#introPanda');
+  carrier.classList.remove('lie');
+  carrier.innerHTML = babyPanda({ love: true, cls: 'happy' });
+  replay(carrier, 'plop');
   giftBtn.setAttribute('aria-label', 'Regalo abierto: un ramo de girasoles');
   const r = giftBtn.getBoundingClientRect();
   setTimeout(() => Confetti.petals(r.left + r.width / 2, r.top + r.height * .25), 260);
@@ -1957,6 +2103,15 @@ giftBtn.addEventListener('click', async () => {
   go.hidden = false;
   go.focus({ preventScroll: true });
 });
+// si lo toca, el pandita se emociona y suelta corazoncitos
+$('#introPanda').addEventListener('click', e => {
+  const svg = e.currentTarget.querySelector('.bp');
+  if (!svg) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  Confetti.hearts(r.left + r.width * .4, r.top + r.height * .35);
+  buzz(12);
+  if (!svg.classList.contains('happy')) { svg.classList.add('happy'); setTimeout(() => svg.classList.remove('happy'), 1300); }
+});
 $('#introGo').addEventListener('click', async () => {
   introEl.classList.add('leaving');
   await wait(650);
@@ -1966,19 +2121,18 @@ $('#introGo').addEventListener('click', async () => {
   openTicket('entry');
 });
 
-/* ---------- el deseo del final: globos de sus años y un pastelito ---------- */
+/* ---------- el deseo del final: un globo de corazón, uno de panda y un pastelito ---------- */
 const wishBtn = $('#wish');
 function renderWish(walking) {
   $('#wishPanda').innerHTML = babyPanda({ item: 'cupcake', wave: true, acc: 'hat', cls: walking ? 'walk' : 'winky' });
 }
 renderWish(false);
 {
-  const [d1, d2] = String(BDAY.age).padStart(2, '0');
   $('#wishBalloons').innerHTML = `<svg viewBox="0 0 120 160">
-    <path d="M34 72 C40 100 62 122 82 156" fill="none" stroke="#E9E3FF" stroke-width="1.4"/>
-    <path d="M86 64 C84 96 80 126 82 156" fill="none" stroke="#E9E3FF" stroke-width="1.4"/>
-    <g class="bl bl-1"><ellipse cx="34" cy="40" rx="27" ry="31" fill="#FFC93C" stroke="#2B2734" stroke-width="3"/><path d="M30 70 L38 70 L34 76Z" fill="#E8A31A" stroke="#2B2734" stroke-width="2" stroke-linejoin="round"/><ellipse cx="24" cy="27" rx="6" ry="10" transform="rotate(-25 24 27)" fill="#fff" opacity=".5"/><text x="34" y="53" text-anchor="middle" font-family="Grandstander, sans-serif" font-weight="900" font-size="36" fill="#fff" stroke="#2B2734" stroke-width="2" paint-order="stroke">${d1}</text></g>
-    <g class="bl bl-2"><ellipse cx="86" cy="32" rx="27" ry="31" fill="#FF7FB8" stroke="#2B2734" stroke-width="3"/><path d="M82 62 L90 62 L86 68Z" fill="#E2306F" stroke="#2B2734" stroke-width="2" stroke-linejoin="round"/><ellipse cx="76" cy="19" rx="6" ry="10" transform="rotate(-25 76 19)" fill="#fff" opacity=".5"/><text x="86" y="45" text-anchor="middle" font-family="Grandstander, sans-serif" font-weight="900" font-size="36" fill="#fff" stroke="#2B2734" stroke-width="2" paint-order="stroke">${d2}</text></g>
+    <path d="M34 74 C40 100 62 122 82 156" fill="none" stroke="#E9E3FF" stroke-width="1.4"/>
+    <path d="M86 66 C84 96 80 126 82 156" fill="none" stroke="#E9E3FF" stroke-width="1.4"/>
+    <g class="bl bl-1"><path d="M34 69 C9 52 3 37 9 25 C15 12 29 11 34 23 C39 11 53 12 59 25 C65 37 59 52 34 69Z" fill="#FF7FB8" stroke="#2B2734" stroke-width="3" stroke-linejoin="round"/><path d="M30 70 L38 70 L34 76Z" fill="#E2306F" stroke="#2B2734" stroke-width="2" stroke-linejoin="round"/><ellipse cx="19" cy="26" rx="5" ry="8.5" transform="rotate(-32 19 26)" fill="#fff" opacity=".55"/></g>
+    <g class="bl bl-2"><circle cx="66" cy="9" r="9.5" fill="#6C6878" stroke="#2B2734" stroke-width="3"/><circle cx="106" cy="9" r="9.5" fill="#6C6878" stroke="#2B2734" stroke-width="3"/><ellipse cx="86" cy="33" rx="28" ry="29" fill="#FFFFFF" stroke="#2B2734" stroke-width="3"/><ellipse cx="76" cy="33" rx="7" ry="9" transform="rotate(-24 76 33)" fill="#6C6878"/><ellipse cx="96" cy="33" rx="7" ry="9" transform="rotate(24 96 33)" fill="#6C6878"/><circle cx="77" cy="32" r="3.4" fill="#1D1A24"/><circle cx="95" cy="32" r="3.4" fill="#1D1A24"/><circle cx="78.2" cy="30.8" r="1.2" fill="#fff"/><circle cx="96.2" cy="30.8" r="1.2" fill="#fff"/><ellipse cx="86" cy="42" rx="4" ry="2.8" fill="#1D1A24"/><path d="M82 46.5 Q84 49 86 47 Q88 49 90 46.5" fill="none" stroke="#1D1A24" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="68" cy="44" rx="5" ry="3.2" fill="#FFB0C8"/><ellipse cx="104" cy="44" rx="5" ry="3.2" fill="#FFB0C8"/><path d="M82 62 L90 62 L86 68Z" fill="#ECE9F5" stroke="#2B2734" stroke-width="2" stroke-linejoin="round"/><ellipse cx="72" cy="17" rx="4.5" ry="7.5" transform="rotate(-30 72 17)" fill="#fff" opacity=".7"/></g>
   </svg>`;
   const VIRTUES = [
     ['Inteligente', '#FFD45C', 'star', -3], ['Linda', '#FFA3CF', 'heart', 2], ['Trabajadora', '#93E7F3', 'sun', -1],
@@ -1986,9 +2140,33 @@ renderWish(false);
     ['Viajera', '#93E7F3', 'planet', -3], ['Valiente', '#FFD45C', 'panda', 1]
   ];
   $('#patches').innerHTML = VIRTUES.map(([w, c, ic, r], k) => `<li class="patch" style="--c:${c};--r:${r}deg;--k:${k}"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#sym-${ic}" width="100" height="100"/></svg>${esc(w)}</li>`).join('');
-  $('#virtuesNote').innerHTML = `${BDAY.age} años siendo así de especial. Y lo más bonito: <b>sigues adelante a pesar de todo.</b>`;
+  $('#virtuesNote').innerHTML = 'Desde un 13 de noviembre, el mundo tiene a alguien así de especial. Y lo más bonito: <b>sigues adelante a pesar de todo.</b>';
   const vio = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); vio.unobserve(e.target); } }), { threshold: .3 });
   vio.observe($('#virtues'));
+  // tu vida es un regalo: un corazón de girasoles que florece uno a uno, con el pandita acostado adentro
+  {
+    const N = 480, pts = [], seg = [];
+    for (let k = 0; k < N; k++) {
+      const t = k / N * Math.PI * 2;
+      pts.push([16 * Math.sin(t) ** 3, -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t))]);
+    }
+    let L = 0;
+    for (let k = 0; k < N; k++) { const a = pts[k], b = pts[(k + 1) % N]; seg.push(Math.hypot(b[0] - a[0], b[1] - a[1])); L += seg[k]; }
+    const n = 22, s = 9, cx = 170, cy = 133, out = [];
+    let acc = 0, k = 0;
+    for (let i = 0; i < n; i++) {
+      const target = i / n * L;
+      while (acc + seg[k] < target) { acc += seg[k]; k++; }
+      const f = (target - acc) / seg[k], a = pts[k], b = pts[(k + 1) % N];
+      out.push([cx + (a[0] + (b[0] - a[0]) * f) * s, cy + (a[1] + (b[1] - a[1]) * f) * s]);
+    }
+    $('#lifeRing').innerHTML = out.map(([x, y], i) => {
+      const sz = i % 2 ? 36 : 44;
+      return `<span class="lh" style="left:${(x / 3.4).toFixed(2)}%;top:${(y / 3.12).toFixed(2)}%;width:${(sz / 3.4).toFixed(2)}%;--k:${i}"><svg viewBox="0 0 100 100"><use href="#sym-sun" width="100" height="100"/></svg></span>`;
+    }).join('');
+    $('#lifePanda').innerHTML = lyingPanda({ item: 'heart', love: true, cls: 'winky' });
+    if ('IntersectionObserver' in window) vio.observe($('#life')); else $('#life').classList.add('in');
+  }
   // el pandita del pastel llega caminando cuando aparece en pantalla
   const wio = new IntersectionObserver(entries => entries.forEach(e => {
     if (!e.isIntersecting) return;
@@ -2017,6 +2195,7 @@ wishBtn.addEventListener('click', () => {
 
 /* ---------- ticket ---------- */
 let tkMode = 'entry', tkIndex = 0, babyToken = 0;
+const LIE_TICKETS = [1, 3, 4, 5];
 function wordsHTML(text) {
   const total = text.replace(/\[\[|\]\]/g, '').split(' ').length;
   let k = 0, out = '';
@@ -2041,13 +2220,21 @@ function openTicket(mode, i = 0) {
   renderTicketPhotos(isEntry ? ENTRY.photos : song.photos);
   const quietT = !isEntry && !!song.quiet;
   const baby = $('#tkBaby'), bItem = isEntry ? ENTRY.item : song.item, bToken = ++babyToken;
-  baby.className = 'tk-baby ' + (quietT || reduced ? 'quiet' : 'walking');
-  baby.innerHTML = babyPanda({ item: bItem, cls: quietT ? 'calm' : (reduced ? 'winky' : 'walk') });
+  // en unas boletas se sienta a saludar; en otras se acuesta a leer contigo, pataleando
+  const lieDown = !isEntry && LIE_TICKETS.includes(i);
+  baby.className = 'tk-baby ' + (quietT || reduced ? 'quiet' : 'walking') + (quietT || (reduced && lieDown) ? ' lie' : '');
+  baby.innerHTML = quietT ? lyingPanda({ item: 'heart', calm: true })
+    : reduced && lieDown ? lyingPanda({ item: bItem === 'cupcake' ? 'sun' : bItem, cls: 'winky' })
+    : babyPanda({ item: bItem, cls: reduced ? 'winky' : 'walk' });
   baby.style.animation = 'none'; void baby.offsetWidth; baby.style.animation = '';
   if (!quietT && !reduced) setTimeout(() => {
     if (bToken !== babyToken) return;
     baby.classList.remove('walking');
-    baby.innerHTML = babyPanda({ item: bItem, wave: true, love: true, cls: 'winky' });
+    if (lieDown) {
+      baby.classList.add('lie');
+      baby.innerHTML = lyingPanda({ item: bItem === 'cupcake' ? 'sun' : bItem, love: true, cls: 'winky' });
+      replay(baby, 'plop');
+    } else baby.innerHTML = babyPanda({ item: bItem, wave: true, love: true, cls: 'winky' });
   }, 1950);
   ticket.style.setProperty('--hl', (isEntry || quietT) ? 'rgba(255,201,60,.5)' : song.paper === '#FFD45C' ? 'rgba(255,79,163,.28)' : 'rgba(255,255,255,.58)');
   $('#tkMarkUse').setAttribute('href', !isEntry && i % 2 ? '#sym-panda' : '#sym-sun');
@@ -2059,7 +2246,7 @@ function openTicket(mode, i = 0) {
   $('#tkExtra').innerHTML = isEntry
     ? `<p class="tk-play">
          <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#1C1245"/><path d="M8.5 14.2h3.4l4.6-4v13.6l-4.6-4H8.5Z" fill="#FFC93C"/><path d="M20 13.2a5 5 0 0 1 0 7.6M23 10.6a9 9 0 0 1 0 12.8" fill="none" stroke="#FFC93C" stroke-width="2" stroke-linecap="round"/></svg>
-         <span>Sube el volumen: la playlist empieza con <b>A Sky Full of Stars</b>, nuestra canción.</span></p>`
+         <span>Sube el volumen: hay una playlist <b>para los dos</b>.</span></p>`
     : '';
   $('#tkSign').textContent = '— ' + FIRMA;
   $('#tkSign').hidden = isEntry;
@@ -2298,9 +2485,33 @@ $('#changeBtn').addEventListener('click', () => {
   p.focus({ preventScroll: true });
 });
 $('#rereadBtn').addEventListener('click', () => openDrawer());
+// el pandita dormidito encima de la carta: si lo toca, se despierta feliz un ratico
+{
+  const le = $('#lePanda');
+  let leT = 0;
+  const sleep = () => { le.innerHTML = lyingPanda({ sleep: true }); le.setAttribute('aria-label', 'Despertar al pandita'); };
+  sleep();
+  le.addEventListener('click', () => {
+    clearTimeout(leT);
+    le.innerHTML = lyingPanda({ love: true, cls: 'winky' });
+    replay(le, 'plop');
+    le.setAttribute('aria-label', 'El pandita se despertó feliz');
+    const r = le.getBoundingClientRect();
+    Confetti.hearts(r.left + r.width * .35, r.top + r.height * .35);
+    buzz(14);
+    leT = setTimeout(sleep, 7000);
+  });
+}
+// tocar a los pandas de la máquina: saltan felices y sueltan corazoncitos
+pandaEl.addEventListener('click', e => {
+  if (!e.target.closest('.pc')) return;
+  if (!cabinet.classList.contains('is-spinning')) panda('cheer');
+  Confetti.hearts(e.clientX, e.clientY - 20);
+  buzz(12);
+});
 $('#moreCue').addEventListener('click', () => $('#celebrate').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }));
 $('#garland').innerHTML = garlandSVG();
-$('#monthNote').textContent = `Todo noviembre es tuyo. ${countdownPhrase()}.`;
+$('#monthNote').textContent = 'Todo noviembre es tuyo, y el 13, más que nunca.';
 
 /* ---------- album (the whole story) ---------- */
 const photosEl = $('#photos');
