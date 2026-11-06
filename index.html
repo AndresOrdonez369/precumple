@@ -841,6 +841,82 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){
   .lh,.life.in .lh{scale:1;rotate:0deg}
 }
+
+/* ---------- Suki de la suerte ---------- */
+.suki{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;overflow:hidden;
+  padding:calc(env(safe-area-inset-top) + 18px) 16px calc(env(safe-area-inset-bottom) + 18px);background:#FFD3E6;color:var(--paper-ink)}
+.suki[open]{display:flex;align-items:center;justify-content:center}
+.suki::backdrop{background:rgba(9,6,34,.55)}
+.suki::before{content:"";position:absolute;inset:-120px;background-image:var(--suki-bg);background-size:120px 120px;animation:suki-drift 18s linear infinite;pointer-events:none}
+@keyframes suki-drift{to{transform:translate(120px,120px)}}
+.suki-inner{--m:min(64vw,280px,38dvh);position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%;max-height:100%;overflow-y:auto;overscroll-behavior:contain;padding:22px 0 8px;scrollbar-width:none}
+.suki-inner::-webkit-scrollbar{display:none}
+.suki-medal{position:relative;z-index:2;flex:none;width:var(--m);aspect-ratio:1;padding:0;border:0;background:none;cursor:pointer;border-radius:50%}
+.suki-bob{position:absolute;inset:0;animation:suki-bob 3.4s ease-in-out infinite}
+@keyframes suki-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
+.suki-bob.wiggle{animation:suki-wiggle .6s ease-in-out}
+@keyframes suki-wiggle{0%,100%{transform:none}20%{transform:rotate(-7deg) scale(1.04)}45%{transform:rotate(6deg) scale(1.05)}70%{transform:rotate(-3deg)}}
+.suki-frame{position:absolute;inset:0;border-radius:50%;overflow:hidden;border:9px solid #FFFFFF;background:#F1E9FF;
+  box-shadow:0 0 0 3px #FF7FB8,0 22px 34px -14px rgba(130,20,80,.6);outline:2.5px dashed #FF7FB8;outline-offset:7px}
+.suki-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 88%}
+.suki-acc{position:absolute;inset:0;pointer-events:none}
+.suki-acc svg{display:block;width:100%;height:100%;overflow:visible}
+.acc-anim{transform-box:fill-box;transform-origin:center}
+.suki.enter .acc-anim{animation:acc-pop .7s cubic-bezier(.3,1.6,.5,1) 1s both}
+.suki.enter .acc-late{animation-delay:1.25s}
+.suki.enter .acc-drop{animation:acc-drop .8s cubic-bezier(.3,1.45,.5,1) 1s both}
+@keyframes acc-pop{from{opacity:0;transform:scale(0) rotate(-90deg)}}
+@keyframes acc-drop{from{opacity:0;transform:translateY(-60px)}35%{opacity:1}}
+.suki-ribbon{position:absolute;z-index:3;left:50%;bottom:-6px;translate:-50% 0;rotate:-3deg;white-space:nowrap;
+  padding:9px 26px 10px;background:#FF4F8B;color:#FFFFFF;font:900 clamp(16px,4.6vw,19px)/1 var(--font-display);letter-spacing:.01em;
+  clip-path:polygon(0 0,100% 0,93% 50%,100% 100%,0 100%,7% 50%);filter:drop-shadow(0 6px 6px rgba(130,20,80,.3))}
+.suki-sparks i{position:absolute;width:18px;height:18px;background:#FFFFFF;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:spark 2.2s ease-in-out infinite;pointer-events:none}
+.suki-sparks i:nth-child(1){left:-8%;top:12%;animation-delay:-.3s;background:#FFC93C}
+.suki-sparks i:nth-child(2){right:-6%;top:2%;animation-delay:-1s}
+.suki-sparks i:nth-child(3){right:-12%;top:46%;animation-delay:-1.6s;background:#FF4F8B;width:14px;height:14px}
+.suki-sparks i:nth-child(4){left:-12%;top:58%;animation-delay:-.7s;width:13px;height:13px}
+.suki-sparks i:nth-child(5){left:44%;top:-11%;animation-delay:-1.3s;background:#FFC93C;width:14px;height:14px}
+.suki-hearts svg{position:absolute;left:50%;top:40%;width:26px;height:26px;opacity:0;pointer-events:none}
+.suki-hearts.go svg{animation:gift-heart 2.2s ease-out forwards}
+.suki-hearts.go svg:nth-child(1){--x:-120px;animation-delay:.05s}
+.suki-hearts.go svg:nth-child(2){--x:110px;animation-delay:.2s;width:20px}
+.suki-hearts.go svg:nth-child(3){--x:-60px;animation-delay:.4s;width:16px}
+.suki-hearts.go svg:nth-child(4){--x:140px;animation-delay:.55s}
+.suki-hearts.go svg:nth-child(5){--x:30px;animation-delay:.7s;width:18px}
+.suki-bubble{position:absolute;z-index:4;right:-4%;top:-2%;padding:9px 15px 10px;border-radius:18px;background:#FFFFFF;color:#E2306F;font:900 18px/1 var(--font-display);white-space:nowrap;
+  box-shadow:0 10px 18px -8px rgba(130,20,80,.5);opacity:0;transform:scale(0);transform-origin:12% 100%;pointer-events:none}
+.suki-bubble::after{content:"";position:absolute;left:14px;bottom:-8px;border:9px solid transparent;border-top-color:#FFFFFF;border-bottom:0}
+.suki-bubble.show{animation:suki-say 1.9s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes suki-say{0%{opacity:0;transform:scale(0) rotate(-8deg)}14%{opacity:1;transform:scale(1) rotate(-4deg)}82%{opacity:1;transform:scale(1) rotate(-4deg)}100%{opacity:0;transform:scale(.6) rotate(-4deg)}}
+.suki-card{position:relative;z-index:1;width:min(88vw,380px);margin-top:-30px;padding:46px 22px 16px;border-radius:26px;background:#FFFFFF;text-align:center;
+  box-shadow:0 24px 44px -20px rgba(130,20,80,.55);outline:2px dashed #FFB0CF;outline-offset:-10px}
+.suki-title{margin:0;font:900 clamp(24px,7vw,30px)/1.08 var(--font-display);color:var(--paper-ink);text-wrap:balance}
+.suki-title em{font-style:normal;color:#E2306F}
+.suki-text{margin:10px auto 16px;max-width:30ch;font:600 16.5px/1.5 var(--font-body);color:var(--paper-ink-2);text-wrap:pretty}
+.suki-btn{max-width:300px}
+.suki-count{display:flex;align-items:center;justify-content:center;gap:10px;margin:12px 0 0;font:700 13.5px/1.2 var(--font-body);color:var(--paper-ink-2)}
+.suki-count .paws{display:flex;gap:4px}
+.suki-count svg{width:22px;height:22px;color:#E9E0F7}
+.suki-count svg.on{color:#FF4F8B}
+.suki.enter .suki-count svg.new{animation:paw-pop .6s cubic-bezier(.3,1.7,.5,1) 1.2s both}
+@keyframes paw-pop{from{transform:scale(0) rotate(-30deg)}}
+.suki.enter{animation:fade .45s ease both}
+.suki.enter .suki-medal{animation:suki-pop .9s cubic-bezier(.3,1.45,.5,1) .08s both}
+@keyframes suki-pop{from{opacity:0;transform:scale(.3) rotate(-18deg)}to{opacity:1;transform:none}}
+.suki.enter .suki-ribbon{animation:suki-ribbon .6s cubic-bezier(.2,.9,.3,1) .65s both}
+@keyframes suki-ribbon{from{clip-path:polygon(50% 0,50% 0,50% 50%,50% 100%,50% 100%,50% 50%)}}
+.suki.enter .suki-card{animation:fade-up .6s var(--ease-out) .4s both}
+.suki.leaving{animation:suki-out .38s ease forwards}
+@keyframes suki-out{to{opacity:0}}
+.suki.leaving .suki-medal{animation:suki-away .38s ease-in forwards}
+@keyframes suki-away{to{opacity:0;transform:translateY(-24px) scale(.88)}}
+@media (max-height:620px){
+  .suki-inner{--m:min(56vw,230px,34dvh)}
+  .suki-text{margin-bottom:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .suki::before{animation:none}
+}
 </style>
 </head>
 <body>
@@ -1088,6 +1164,33 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
   </div>
 </dialog>
 
+<dialog class="suki" id="suki" aria-labelledby="sukiTitle">
+  <div class="suki-inner">
+    <button class="suki-medal" id="sukiPhoto" type="button">
+      <span class="suki-bob" id="sukiBob">
+        <span class="suki-frame"><img src="fotos/suki.webp" alt="Suki, la perrita de Pandita, sacando la lengüita feliz" width="729" height="987" decoding="async"></span>
+        <span class="suki-acc" id="sukiAcc" aria-hidden="true"></span>
+      </span>
+      <span class="suki-ribbon" aria-hidden="true">Suki de la suerte</span>
+      <span class="suki-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="suki-hearts" id="sukiHearts" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><use href="#sym-heart" width="100" height="100"/></svg>
+        <svg viewBox="0 0 100 100"><use href="#sym-heart" width="100" height="100"/></svg>
+        <svg viewBox="0 0 100 100"><use href="#sym-heart" width="100" height="100"/></svg>
+        <svg viewBox="0 0 100 100"><use href="#sym-heart" width="100" height="100"/></svg>
+        <svg viewBox="0 0 100 100"><use href="#sym-heart" width="100" height="100"/></svg>
+      </span>
+      <span class="suki-bubble" id="sukiBubble" aria-hidden="true">¡Guau!</span>
+    </button>
+    <div class="suki-card">
+      <h2 class="suki-title" id="sukiTitle"></h2>
+      <p class="suki-text" id="sukiText"></p>
+      <button class="btn-primary suki-btn" id="sukiBtn" type="button"></button>
+      <p class="suki-count" id="sukiCount"></p>
+    </div>
+  </div>
+</dialog>
+
 <div class="np" id="np" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
   <span>Suena</span><b id="npText"></b>
@@ -1253,7 +1356,7 @@ const replay = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.
 const KEY = 'dayana-maquina-v1';
 const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch (e) { return null; } };
 const persist = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
-const state = Object.assign({ entered: false, pulls: 0, jackpot: false, gift: null }, load() || {});
+const state = Object.assign({ entered: false, pulls: 0, jackpot: false, gift: null, suki: 0 }, load() || {});
 state.pulls = Math.max(0, Math.min(TOTAL, state.pulls | 0));
 
 /* ---------- drawn symbols ---------- */
@@ -2191,7 +2294,101 @@ wishBtn.addEventListener('click', () => {
   t.classList.add('done');
   t.textContent = 'Que se cumpla todo lo que deseas, Panda.';
   live('Vela apagada. Que se cumpla todo lo que deseas, Panda.');
+  // y para que se cumpla: la tercera Suki de la suerte
+  setTimeout(() => { if ((state.suki | 0) < 3 && !sukiDlg.open) showSuki(2); }, reduced ? 400 : 2600);
 });
+
+/* ---------- Suki de la suerte: la perrita de Pandita aparece 3 veces para sacarle una sonrisa ---------- */
+// 1: después de la boleta 2 · 2: después de las boletas difíciles (5) · 3: al pedir el deseo (o al llegar a la carta)
+const SUKI_AFTER = [1, 4];
+const SUKIS = [
+  { acc: 'clover', title: '¡Te envío una <em>Suki</em> de la suerte!', text: 'Cuenta la leyenda que si la miras, sonríes. Y si sonríes, tu día se pone bonito.', btn: '¡Gracias, Suki!' },
+  { acc: 'sun', title: '¡Otra <em>Suki</em> de la suerte para ti!', text: 'Después de lo difícil, una sonrisa: Suki te manda besitos, con lengüita incluida.', btn: '¡Me hizo sonreír!' },
+  { acc: 'hat', title: '¡Y una <em>Suki</em> de la suerte para tu deseo!', text: 'Para que se cumpla todo lo que deseas. Ya tienes las tres: suerte para todo noviembre.', btn: '¡Las tengo todas!' }
+];
+const SUKI_SAYS = ['¡Guau!', '¡Guau, guau!', '¡Sonríe, Pandita!', '¡Besitos!'];
+const sukiDlg = $('#suki');
+{
+  // el fondo: pandas y corazones que flotan despacito
+  const face = '<circle cx="-10" cy="-10" r="6" fill="#2B2734"/><circle cx="10" cy="-10" r="6" fill="#2B2734"/><ellipse rx="14" ry="12.5" fill="#FFFFFF" stroke="#2B2734" stroke-width="1.6"/><ellipse cx="-5.6" rx="3.6" ry="4.6" transform="rotate(-28 -5.6 0)" fill="#2B2734"/><ellipse cx="5.6" rx="3.6" ry="4.6" transform="rotate(28 5.6 0)" fill="#2B2734"/><circle cx="-5" cy="-.8" r="1.3" fill="#FFFFFF"/><circle cx="5" cy="-.8" r="1.3" fill="#FFFFFF"/><ellipse cy="5" rx="2" ry="1.4" fill="#2B2734"/><ellipse cx="-9.5" cy="5.5" rx="2.4" ry="1.5" fill="#FF8FB8"/><ellipse cx="9.5" cy="5.5" rx="2.4" ry="1.5" fill="#FF8FB8"/>';
+  const heart = 'M0 7 C-9 1 -11 -5 -7 -9 C-4 -12 -1 -10 0 -7 C1 -10 4 -12 7 -9 C11 -5 9 1 0 7Z';
+  const tile = `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><g transform="translate(30 32) rotate(-12)">${face}</g><g transform="translate(90 90) rotate(10)">${face}</g><path transform="translate(88 30) rotate(14)" d="${heart}" fill="#FF4F8B"/><path transform="translate(30 90) rotate(-10) scale(.9)" d="${heart}" fill="#FFFFFF"/><path transform="translate(60 61) scale(.55)" d="${heart}" fill="#FF7FB8"/><path transform="translate(108 58) rotate(-8) scale(.45)" d="${heart}" fill="#FFFFFF"/><path transform="translate(14 60) rotate(12) scale(.4)" d="${heart}" fill="#FF4F8B"/></svg>`;
+  sukiDlg.style.setProperty('--suki-bg', `url("data:image/svg+xml,${encodeURIComponent(tile)}")`);
+}
+// lo que lleva puesto cada Suki: trébol de la suerte, girasol en la oreja, gorrito de cumpleaños
+function sukiAccHTML(kind) {
+  const leaf = 'M0 0 C-10 -4 -12 -16 -5 -19 C-1 -20.5 0 -17 0 -15.5 C0 -17 1 -20.5 5 -19 C12 -16 10 -4 0 0Z';
+  const ACC = {
+    clover: `<g transform="translate(83 81) rotate(18) scale(.72)"><g class="acc-anim">
+        <path d="M0 2 C2 12 6 20 12 26" fill="none" stroke="#2F7A47" stroke-width="3.4" stroke-linecap="round"/>
+        <g fill="#4CC36E" stroke="#2B2734" stroke-width="2.2" stroke-linejoin="round">${[0, 90, 180, 270].map(r => `<path d="${leaf}" transform="rotate(${r})"/>`).join('')}</g>
+        <circle r="3" fill="#2F7A47"/><ellipse cx="-4" cy="-13" rx="2.2" ry="3.4" transform="rotate(-30 -4 -13)" fill="#FFFFFF" opacity=".5"/>
+      </g></g>`,
+    sun: `<g transform="translate(17 30) rotate(-16)"><g class="acc-anim"><use href="#sym-sun" x="-12" y="-12" width="24" height="24"/></g></g>
+      <g transform="translate(86 20) rotate(14)"><g class="acc-anim acc-late"><use href="#sym-heart" x="-6" y="-6" width="12" height="12"/></g></g>`,
+    hat: `<g transform="translate(44 23) rotate(-20)"><g class="acc-anim acc-drop">
+        <path d="M-10 1 L0 -24 L10 1Z" fill="#FF4FA3" stroke="#2B2734" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M-3.4 -15.6 L3.4 -15.6 L4.9 -12 L-4.9 -12Z" fill="#FFC93C"/>
+        <path d="M-6.8 -7.2 L6.8 -7.2 L8.3 -3.6 L-8.3 -3.6Z" fill="#3FE0F0"/>
+        <path d="M-11.4 1 Q0 5.4 11.4 1" fill="none" stroke="#FFF1B8" stroke-width="3" stroke-linecap="round"/>
+        <circle cy="-25.2" r="3.9" fill="#FFC93C" stroke="#2B2734" stroke-width="1.8"/>
+      </g></g>`
+  };
+  return `<svg viewBox="0 0 100 100" aria-hidden="true">${ACC[kind] || ''}</svg>`;
+}
+let sukiDone = null, sukiSay = 0;
+function sukiTalk(text) {
+  const b = $('#sukiBubble');
+  b.textContent = text || SUKI_SAYS[sukiSay++ % SUKI_SAYS.length];
+  replay(b, 'show');
+  replay($('#sukiHearts'), 'go');
+}
+function showSuki(k) {
+  return new Promise(resolve => {
+    const s = SUKIS[k];
+    state.suki = Math.max(state.suki | 0, k + 1); persist();
+    $('#sukiTitle').innerHTML = s.title;
+    $('#sukiText').textContent = s.text;
+    $('#sukiBtn').textContent = s.btn;
+    $('#sukiAcc').innerHTML = sukiAccHTML(s.acc);
+    $('#sukiCount').innerHTML = `<span class="paws">${[0, 1, 2].map(i => `<svg viewBox="0 0 24 24" class="${i < k ? 'on' : i === k ? 'on new' : ''}" aria-hidden="true"><use href="#sym-paw" width="24" height="24"/></svg>`).join('')}</span><span>Sukis de la suerte: ${k + 1} de 3</span>`;
+    sukiSay = 0;
+    sukiDlg.classList.remove('leaving');
+    sukiDlg.showModal();
+    replay(sukiDlg, 'enter');
+    $('#sukiBtn').focus({ preventScroll: true });
+    setTimeout(() => { if (sukiDlg.open) sukiTalk(); }, reduced ? 0 : 1500);
+    buzz([16, 40, 16]);
+    live(`Sorpresa: una Suki de la suerte, ${k + 1} de 3.`);
+    sukiDone = resolve;
+  });
+}
+async function closeSuki() {
+  if (!sukiDlg.open || sukiDlg.classList.contains('leaving')) return;
+  sukiDlg.classList.add('leaving');
+  await wait(380);
+  sukiDlg.close();
+  sukiDlg.classList.remove('leaving', 'enter');
+  const done = sukiDone; sukiDone = null;
+  if (done) done();
+}
+$('#sukiBtn').addEventListener('click', closeSuki);
+sukiDlg.addEventListener('cancel', e => { e.preventDefault(); closeSuki(); });
+$('#sukiPhoto').addEventListener('click', () => {
+  sukiTalk();
+  replay($('#sukiBob'), 'wiggle');
+  buzz(10);
+});
+$('#sukiBob').addEventListener('animationend', e => { if (e.animationName === 'suki-wiggle') e.currentTarget.classList.remove('wiggle'); });
+// si llega a la carta final sin haber pedido el deseo, la tercera Suki la espera ahí
+{
+  const lio = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting || (state.suki | 0) >= 3) return;
+    lio.disconnect();
+    if (!document.querySelector('dialog[open]')) showSuki(2);
+  }), { threshold: .5 });
+  lio.observe($('#letterEnd'));
+}
 
 /* ---------- ticket ---------- */
 let tkMode = 'entry', tkIndex = 0, babyToken = 0;
@@ -2322,6 +2519,9 @@ async function saveTicket() {
   sheet.close();
   updateHUD(true); buzz(8);
   rearm();
+  // sorpresa: una Suki de la suerte después de la boleta 2 y después de las difíciles
+  const sk = SUKI_AFTER.indexOf(tkIndex);
+  if (sk >= 0 && (state.suki | 0) <= sk) { await wait(450); await showSuki(sk); }
   pullBtn.focus({ preventScroll: true });
 }
 
