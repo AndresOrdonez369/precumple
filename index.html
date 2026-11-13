@@ -941,6 +941,38 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
 @keyframes shackle{0%,100%{transform:none}40%{transform:translateY(-3px)}}
 .lock-msg{min-height:1.4em;margin:12px 0 0;max-width:32ch;font:700 15px/1.4 var(--font-body);color:var(--ink-2)}
 .lock-msg.show{animation:fade-up .4s var(--ease-out)}
+
+/* ---------- viernes 13: el botón abierto, la notificación y el video ---------- */
+.lock-btn.open{background:linear-gradient(180deg,#FFE27A 0%,#FFC93C 55%,#E8A31A 100%);color:#2A1500;outline-color:rgba(42,21,0,.45);animation:open-pulse 2.2s ease-in-out infinite}
+.lock-btn.open .lock-txt small{color:#5A3214}
+.lock-btn.open .lock-ico{background:#2A1500;color:#FFC93C}
+.lock-btn.open .lock-ico svg{animation:none}
+.lock-btn.open .lock-shackle{transform:translate(4px,-4px) rotate(24deg)}
+@keyframes open-pulse{0%,100%{transform:none;box-shadow:0 18px 30px -14px rgba(0,0,0,.7)}50%{transform:scale(1.025);box-shadow:0 22px 38px -12px rgba(255,201,60,.55)}}
+.noti13{position:fixed;inset:calc(env(safe-area-inset-top) + 12px) 12px auto;margin:0 auto;z-index:95;width:min(calc(100vw - 24px),440px);display:grid;grid-template-columns:auto 1fr;gap:10px 12px;align-items:center;
+  padding:14px 14px 14px 14px;border:0;border-radius:22px;background:#FFFFFF;color:var(--paper-ink);box-shadow:0 24px 48px -16px rgba(0,0,0,.75),0 0 0 3px #FFC93C;
+  opacity:0;transform:translateY(-140%);transition:opacity .35s,transform .6s cubic-bezier(.3,1.4,.5,1);pointer-events:none}
+.noti13:not([popover]),.noti13[popover]:not(:popover-open){display:none}
+.noti13.show{display:grid;opacity:1;transform:none;pointer-events:auto}
+.noti-bell{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:#FF4F8B;color:#fff}
+.noti-bell svg{width:28px;height:28px;transform-origin:50% 10%}
+.noti13.show .noti-bell svg{animation:bell 1.1s ease-in-out .5s 3}
+@keyframes bell{0%,100%{transform:none}15%{transform:rotate(18deg)}30%{transform:rotate(-16deg)}45%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}75%{transform:rotate(4deg)}}
+.noti-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.noti-txt b{font:900 19px/1.1 var(--font-display)}
+.noti-txt span{font:600 14.5px/1.35 var(--font-body);color:var(--paper-ink-2)}
+.noti-actions{grid-column:1 / -1;display:flex;gap:8px}
+.noti-go{flex:1;min-height:48px;border:0;border-radius:999px;cursor:pointer;background:linear-gradient(180deg,var(--gold-hi) 0%,var(--gold) 50%,#E2A419 100%);color:#2A1500;font:900 18px/1 var(--font-display)}
+.noti-x{width:48px;min-height:48px;border:0;border-radius:999px;cursor:pointer;background:#F1ECFB;color:var(--paper-ink)}
+.noti-x svg{width:20px;height:20px}
+.vid-dlg{width:min(calc(100vw - 20px),720px);max-width:none;max-height:calc(100dvh - 20px);padding:0;border:0;border-radius:22px;background:#170F4A;color:var(--ink);overflow:auto}
+.vid-dlg::backdrop{background:rgba(9,6,34,.85)}
+.vid-card{padding:14px 14px 16px}
+.vid-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.vid-head h2{margin:0;font:900 22px/1.1 var(--font-display);color:var(--sun)}
+.vid-dlg video{display:block;width:100%;max-height:calc(100dvh - 160px);border-radius:14px;background:#000}
+.vid-note{margin:12px 0 0;text-align:center;font:700 15px/1.4 var(--font-body);color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){.lock-btn.open{animation:none}}
 </style>
 </head>
 <body>
@@ -1224,6 +1256,30 @@ body:not(.music-on) .pl-list .eq i{animation-play-state:paused}
     </div>
   </div>
 </dialog>
+
+<dialog class="vid-dlg" id="vidDlg" aria-labelledby="vidTitle">
+  <div class="vid-card">
+    <div class="vid-head">
+      <h2 id="vidTitle">Un cielo lleno de ti</h2>
+      <button class="icon-btn" id="vidClose" type="button" aria-label="Cerrar el video">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <video id="vid13" controls playsinline preload="none"></video>
+    <p class="vid-note">Feliz cumpleaños, Pandita. Hoy es tu día.</p>
+  </div>
+</dialog>
+
+<div class="noti13" id="noti13" popover="manual" role="alert">
+  <span class="noti-bell" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a1.6 1.6 0 0 1 1.6 1.6v.6a6.4 6.4 0 0 1 4.8 6.2v3.6l1.7 2.4a1 1 0 0 1-.8 1.6H4.7a1 1 0 0 1-.8-1.6l1.7-2.4v-3.6a6.4 6.4 0 0 1 4.8-6.2v-.6A1.6 1.6 0 0 1 12 2.5Z"/><path d="M9.6 19.8h4.8a2.4 2.4 0 0 1-4.8 0Z"/></svg></span>
+  <span class="noti-txt"><b>¡Llegó el viernes 13!</b><span>Tu sorpresa ya se abrió: un video hecho para ti.</span></span>
+  <span class="noti-actions">
+    <button class="noti-go" id="notiGo" type="button">Verlo ahora</button>
+    <button class="noti-x" id="notiClose" type="button" aria-label="Cerrar aviso">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+    </button>
+  </span>
+</div>
 
 <div class="np" id="np" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
@@ -2736,18 +2792,73 @@ $('#rereadBtn').addEventListener('click', () => openDrawer());
     leT = setTimeout(sleep, 7000);
   });
 }
-// P. D.: el botón que solo se abre el 13 de noviembre. Por ahora tiene candado: lo que guarda se agrega después.
+// P. D.: el botón que solo se abre el viernes 13 de noviembre. Ese día se desbloquea el video y llega una notificación.
 {
-  $('#lockLeft').textContent = BDAY.days > 1 ? `Faltan ${BDAY.days} días` : BDAY.days === 1 ? 'Falta 1 día' : 'Ya casi';
+  const UNLOCK = new Date(2026, 10, 13, 0, 0, 0);
+  const VIDEO = 'video/un-cielo-lleno-de-ti-v4-liviano.mp4';
+  const btn = $('#lockBtn'), vdlg = $('#vidDlg'), vid = $('#vid13'), song = $('#song');
+  const isOpen = () => Date.now() >= UNLOCK.getTime();
   const NOPE = ['Todavía no, Pandita. Vuelve el 13.', 'Paciencia… ya casi.', 'Este candado solo se abre el 13 de noviembre.'];
-  let n = 0;
-  $('#lockBtn').addEventListener('click', e => {
+  let n = 0, songWasOn = false;
+  function lockedText() {
+    const d = BDAY.days;
+    $('#lockLeft').textContent = d > 1 ? `Faltan ${d} días` : d === 1 ? 'Falta 1 día: es mañana' : 'Ya casi';
+  }
+  function unlock(announce) {
+    btn.classList.add('open');
+    btn.querySelector('.lock-txt b').textContent = '¡Ya se abrió tu sorpresa!';
+    $('#lockLeft').textContent = 'Toca para ver el video';
+    $('.pd13-note').textContent = 'P. D.: Hoy es el día. Esto es para ti.';
+    if (announce) setTimeout(notify, 1400);
+  }
+  function openVideo() {
+    hideNoti();
+    if (!vid.getAttribute('src')) vid.src = VIDEO;
+    songWasOn = !song.paused;
+    if (songWasOn) song.pause();
+    if (!vdlg.open) vdlg.showModal();
+    vid.play().catch(() => {});
+    buzz([20, 40, 20]);
+  }
+  function closeVideo() {
+    vid.pause();
+    vdlg.close();
+    if (songWasOn) song.play().catch(() => {});
+  }
+  // la súper notificación: baja desde arriba, la campanita suena y caen corazones y estrellas
+  const noti = $('#noti13');
+  function notify() {
+    try { if (noti.showPopover && !noti.matches(':popover-open')) noti.showPopover(); } catch (e) {}
+    requestAnimationFrame(() => requestAnimationFrame(() => noti.classList.add('show')));
+    Confetti.jackpot();
+    buzz([60, 60, 60, 60, 200]);
+    live('¡Llegó el 13! Tu sorpresa ya se abrió.');
+  }
+  function hideNoti() {
+    noti.classList.remove('show');
+    setTimeout(() => { try { if (noti.hidePopover && noti.matches(':popover-open')) noti.hidePopover(); } catch (e) {} }, 450);
+  }
+  $('#notiGo').addEventListener('click', openVideo);
+  $('#notiClose').addEventListener('click', hideNoti);
+  $('#vidClose').addEventListener('click', closeVideo);
+  vdlg.addEventListener('cancel', e => { e.preventDefault(); closeVideo(); });
+  vdlg.addEventListener('click', e => { if (e.target === vdlg) closeVideo(); });
+  btn.addEventListener('click', e => {
+    if (isOpen()) { if (!btn.classList.contains('open')) unlock(false); openVideo(); return; }
     replay(e.currentTarget, 'nope');
     buzz([12, 40, 12]);
     const m = $('#lockMsg');
     m.textContent = NOPE[n++ % NOPE.length];
     replay(m, 'show');
   });
+  if (isOpen()) {
+    unlock(true); // la notificación sale cada vez que abra la página el 13 o después
+  } else {
+    lockedText();
+    // si tiene la página abierta a la medianoche, se abre ahí mismo
+    const wait13 = UNLOCK.getTime() - Date.now();
+    if (wait13 < 2147483647) setTimeout(() => unlock(true), wait13 + 500);
+  }
 }
 // tocar a los pandas de la máquina: saltan felices y sueltan corazoncitos
 pandaEl.addEventListener('click', e => {
